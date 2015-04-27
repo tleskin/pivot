@@ -24,6 +24,15 @@ RSpec.describe Item, type: :model do
       expect(item).to_not be_valid
     end
 
+    it 'is invalid without a unique title' do
+      item.save
+      new_item =   Item.create(title: "Food",
+                   description: "Good",
+                   price: 900)
+      expect(new_item).to_not be_valid
+    end
+
+
     it 'is invalid without a description' do
       item.description = ""
       expect(item).to_not be_valid

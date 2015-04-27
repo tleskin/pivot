@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
-  has_many :orders_items
-  has_many :items, through: :orders_items
+  has_many   :orders_items
+  has_many   :items, through: :orders_items
   belongs_to :user
-  validates :status, presence: true, inclusion: { in: %w(ordered completed cancelled) }
-
+  validates  :status, presence: true, inclusion: { in: %w(ordered completed cancelled) }
+  validates  :user_id, presence: true
 end

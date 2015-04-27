@@ -12,10 +12,15 @@ RSpec.describe Order, type: :model do
   end
 
   context 'with invalid params' do
-    it 'is invalid' do
+    it 'is invalid without a valid status' do
       order.status = ""
       expect(order).to_not be_valid
       order.status = "done"
+      expect(order).to_not be_valid
+    end
+
+    it 'is invalid without a user id' do
+      order.user_id = ""
       expect(order).to_not be_valid
     end
   end

@@ -8,4 +8,5 @@ class Item < ActiveRecord::Base
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :image, presence: true
   validates :retired, inclusion: { in: [true, false] }
+  validates_uniqueness_of :title
 end
