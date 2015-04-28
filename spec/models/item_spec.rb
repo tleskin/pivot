@@ -12,6 +12,10 @@ RSpec.describe Item, type: :model do
       expect(item).to be_valid
     end
 
+    it 'has one or more categories' do
+      expect(item.categories).to eq([])
+    end
+
     it 'has a default value for image and retired' do
       expect(item.retired).to eq(false)
       expect(item.image).to eq("https://browshot.com/static/images/not-found.png")

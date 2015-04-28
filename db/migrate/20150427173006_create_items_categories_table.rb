@@ -1,8 +1,8 @@
 class CreateItemsCategoriesTable < ActiveRecord::Migration
   def change
-    create_join_table :items, :categories do |t|
-      t.index :item_id
-      t.index :category_id
+    create_table :items_categories do |t|
+      t.references :item, index: true, foreign_key: true
+      t.references :category, index: true, foreign_key: true
     end
   end
 end

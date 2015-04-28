@@ -19,14 +19,6 @@ ActiveRecord::Schema.define(version: 20150427173328) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories_items", id: false, force: :cascade do |t|
-    t.integer "item_id",     null: false
-    t.integer "category_id", null: false
-  end
-
-  add_index "categories_items", ["category_id"], name: "index_categories_items_on_category_id"
-  add_index "categories_items", ["item_id"], name: "index_categories_items_on_item_id"
-
   create_table "items", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
@@ -37,13 +29,13 @@ ActiveRecord::Schema.define(version: 20150427173328) do
     t.datetime "updated_at",                                                               null: false
   end
 
-  create_table "items_orders", id: false, force: :cascade do |t|
-    t.integer "order_id", null: false
-    t.integer "item_id",  null: false
+  create_table "items_categories", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "category_id"
   end
 
-  add_index "items_orders", ["item_id"], name: "index_items_orders_on_item_id"
-  add_index "items_orders", ["order_id"], name: "index_items_orders_on_order_id"
+  add_index "items_categories", ["category_id"], name: "index_items_categories_on_category_id"
+  add_index "items_categories", ["item_id"], name: "index_items_categories_on_item_id"
 
   create_table "orders", force: :cascade do |t|
     t.string   "status"
@@ -51,6 +43,14 @@ ActiveRecord::Schema.define(version: 20150427173328) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "orders_items", force: :cascade do |t|
+    t.integer "order_id_id"
+    t.integer "item_id_id"
+  end
+
+  add_index "orders_items", ["item_id_id"], name: "index_orders_items_on_item_id_id"
+  add_index "orders_items", ["order_id_id"], name: "index_orders_items_on_order_id_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"

@@ -8,6 +8,11 @@ RSpec.describe Category, type: :model do
     it 'is valid' do
       expect(category).to be_valid
     end
+
+    it 'has one or many items' do
+      category.save
+      expect(category.items).to eq([])
+    end
   end
 
   context 'with invalid params' do

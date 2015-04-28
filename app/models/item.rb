@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
-  has_many  :categories_items
-  has_many  :categories, through: :categories_items
+  has_many  :items_categories
+  has_many  :categories, through: :items_categories
   has_many  :orders_items
   has_many  :orders, through: :orders_items
   validates :title, presence: true, uniqueness: true
