@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates_length_of :username, :maximum=>32, :minimum => 2
   has_secure_password
+  def admin?
+    role == 1
+  end
 end
