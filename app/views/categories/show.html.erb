@@ -1,8 +1,4 @@
-<h1>Restaurant Name</h1>
-<button> Login </button><br /><br />
-<h2><%= link_to "Categories", categories_path %></h2><br /><br />
-<!-- will change to ERB when routes are set -->
-<% @items.each do |item| %>
+<% @category.items.each do |item| %>
 <%= item.title %> <br /><br />
 <img src="<%= item.image %>" height=100><br /><br />
 <%= link_to "Description", item_path(item.id) %><br />

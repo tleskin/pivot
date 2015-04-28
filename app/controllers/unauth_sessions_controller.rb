@@ -4,4 +4,8 @@ class UnauthSessionsController < ApplicationController
     @items = Item.all
     @categories = Category.all
   end
+
+  def description
+    # @item = Item.find(params[:id])
+  end
 end
