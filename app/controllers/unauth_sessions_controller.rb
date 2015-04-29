@@ -1,7 +1,7 @@
 class UnauthSessionsController < ApplicationController
 
   def show
-    @items = Item.all
+    @items = Item.active_items
     @categories = Category.all
   end
 
