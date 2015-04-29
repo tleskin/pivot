@@ -38,6 +38,8 @@ RSpec.describe 'User' do
     it 'is invalid without a email' do
       user.email = ''
       expect(user).to_not be_valid
+      user.email = 'barry@whitehouse'
+      expect(user).to_not be_valid
     end
 
     it 'is invalid without a matching password combination' do

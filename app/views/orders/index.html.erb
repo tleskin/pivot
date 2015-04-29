@@ -1,0 +1,8 @@
+<h1>My Past Orders </h1>
+<% current_user.orders.each do |order|%>
+<%= order.created_at %><br />
+<%= order.status %> at <%= order.updated_at %><br />
+<% order.items.each do |item|  %>
+<%= item.title %> <%= item.price %>  <%= link_to "Description", item_path(item) %>
+<% end %>
+<% end %>

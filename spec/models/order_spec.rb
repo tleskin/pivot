@@ -9,6 +9,10 @@ RSpec.describe Order, type: :model do
       expect(order).to be_valid
     end
 
+    it 'has one or more items' do
+      expect(order.items).to eq([])
+    end
+
   end
 
   context 'with invalid params' do

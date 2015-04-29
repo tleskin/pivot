@@ -45,12 +45,12 @@ ActiveRecord::Schema.define(version: 20150428215836) do
   end
 
   create_table "orders_items", force: :cascade do |t|
-    t.integer "order_id_id"
-    t.integer "item_id_id"
+    t.integer "order_id"
+    t.integer "item_id"
   end
 
-  add_index "orders_items", ["item_id_id"], name: "index_orders_items_on_item_id_id"
-  add_index "orders_items", ["order_id_id"], name: "index_orders_items_on_order_id_id"
+  add_index "orders_items", ["item_id"], name: "index_orders_items_on_item_id"
+  add_index "orders_items", ["order_id"], name: "index_orders_items_on_order_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
