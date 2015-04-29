@@ -11,7 +11,9 @@ class Admin::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    categories = params[:item][:category_ids].reject(&:empty?)
     if @item.save
+      categories.each { |cat| @item.categories << Category.find(cat) }
       redirect_to admin_items_path
     else
       flash[:notice] = "Invalid item creation"
@@ -28,7 +30,7 @@ class Admin::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     categories = params[:item][:category_ids].reject(&:empty?)
     if @item.update(item_params)
-      categories.each { |cat| @item.categories << Category.find(cat)}
+      categories.each { |cat| @item.categories << Category.find(cat) }
       redirect_to admin_items_path
     else
       flash[:notice] = "Invalid fields"

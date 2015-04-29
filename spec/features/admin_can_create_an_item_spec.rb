@@ -20,5 +20,22 @@ RSpec.describe 'admin' do
       click_link_or_button "Create Item"
       expect(page).to have_content("Butterfree")
     end
+
+    it 'can assign categories to an item' do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      visit new_admin_item_path
+      fill_in "Title", with: "Butterfree"
+      fill_in "Description", with: "Bug pokemon"
+      fill_in "Price", with: 500
+      check "Grass"
+      check "Water"
+      click_link_or_button "Create Item"
+      visit categories_path
+      click_link_or_button "Grass"
+      expect(page).to have_content("Butterfree")
+      visit categories_path
+      click_link_or_button "Water"
+      expect(page).to have_content("Butterfree")
+    end
   end
 end
