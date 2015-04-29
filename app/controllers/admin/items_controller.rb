@@ -18,6 +18,24 @@ class Admin::ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to admin_items_path
+    else
+      flash[:notice] = "Invalid fields"
+      render :edit
+    end
+  end
+
+  def retire
+
+  end
+
   private
 
   def item_params

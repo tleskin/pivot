@@ -1,0 +1,13 @@
+<%= form_for [:admin, @item] do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title, value: @item.title  %>
+<%= f.label :description %>
+<%= f.text_field :description, value: @item.description %>
+<%= f.label :price %>
+<%= f.text_field :price, value: @item.price %>
+<%= f.label :image %>
+<%= f.text_field :image, value: @item.image %>
+<%= f.label :retired %>
+<%= f.text_field :retired, value: @item.retired %>
+<%= f.submit method: "patch" %>
+<% end %>
