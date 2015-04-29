@@ -38,10 +38,6 @@ class Admin::ItemsController < ApplicationController
     end
   end
 
-  def retire
-
-  end
-
   private
 
   def item_params
