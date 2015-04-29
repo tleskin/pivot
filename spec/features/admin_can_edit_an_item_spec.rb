@@ -17,7 +17,7 @@ RSpec.describe 'admin' do
                   description: "Fire Breathing bastard",
                   price: 2000)
     }
-  it 'can edit an item' do
+    it 'can edit an item' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
       visit edit_admin_item_path(item)
       fill_in "Title", with: "Charmeleon"

@@ -9,4 +9,9 @@ class Item < ActiveRecord::Base
   validates :image, presence: true
   validates :retired, inclusion: { in: [true, false] }
   validates_uniqueness_of :title
+
+  def self.active_items
+    Item.where(retired: false)
+  end
+
 end
