@@ -1,0 +1,11 @@
+<h1>My Cart</h1>
+<% @items.each_with_index do |item, i| %>
+  <%= item.title %>
+  <%= item.price %>
+  <%= @quantities[i] %><br />
+<% end %>
+<br />
+<%= button_to "Submit Order", order_path(@order), method: "post" %>
+<br />
+
+<h3><%= link_to "Back to Menu", root_path %></h3>

@@ -5,4 +5,7 @@
 <%= f.password_field :password %><br /><br />
 <%= f.submit "Login" %>
 <% end %>
-<%= flash[:notice] %>
+<%= link_to "New User", new_user_path %><br />
+<%= flash[:notice] %><br />
+
+<%= link_to "Menu", root_path %><br />

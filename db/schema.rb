@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150428215836) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -34,8 +37,8 @@ ActiveRecord::Schema.define(version: 20150428215836) do
     t.integer "category_id"
   end
 
-  add_index "items_categories", ["category_id"], name: "index_items_categories_on_category_id"
-  add_index "items_categories", ["item_id"], name: "index_items_categories_on_item_id"
+  add_index "items_categories", ["category_id"], name: "index_items_categories_on_category_id", using: :btree
+  add_index "items_categories", ["item_id"], name: "index_items_categories_on_item_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.string   "status"
@@ -49,8 +52,8 @@ ActiveRecord::Schema.define(version: 20150428215836) do
     t.integer "item_id"
   end
 
-  add_index "orders_items", ["item_id"], name: "index_orders_items_on_item_id"
-  add_index "orders_items", ["order_id"], name: "index_orders_items_on_order_id"
+  add_index "orders_items", ["item_id"], name: "index_orders_items_on_item_id", using: :btree
+  add_index "orders_items", ["order_id"], name: "index_orders_items_on_order_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -63,4 +66,8 @@ ActiveRecord::Schema.define(version: 20150428215836) do
     t.integer  "role",            default: 0
   end
 
+  add_foreign_key "items_categories", "categories"
+  add_foreign_key "items_categories", "items"
+  add_foreign_key "orders_items", "items"
+  add_foreign_key "orders_items", "orders"
 end

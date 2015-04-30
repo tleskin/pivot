@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+  has_many  :purchases
   has_many  :items_categories
   has_many  :categories, through: :items_categories
   has_many  :orders_items
