@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'admin' do
   context 'with valid credentials' do
+    #need to replace let admin with factory girl create admin
     let(:admin){
       User.create(first_name: "Admin",
                   last_name: "astrator",
@@ -23,19 +24,17 @@ RSpec.describe 'admin' do
 
     it 'can assign categories to an item' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      create(:category)
       visit new_admin_item_path
       fill_in "Title", with: "Butterfree"
       fill_in "Description", with: "Bug pokemon"
       fill_in "Price", with: 500
       check "Grass"
-      check "Water"
       click_link_or_button "Create Item"
       visit categories_path
       click_link_or_button "Grass"
       expect(page).to have_content("Butterfree")
       visit categories_path
-      click_link_or_button "Water"
-      expect(page).to have_content("Butterfree")
     end
   end
   context 'with invalid credentials' do
