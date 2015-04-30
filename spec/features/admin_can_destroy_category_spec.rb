@@ -24,4 +24,24 @@ RSpec.describe 'admin' do
       expect(page).to_not have_content("Fighting")
     end
   end
+  context 'with invalid credentials' do
+    let(:user){
+      User.create(first_name: "user",
+                  last_name: "user",
+                  username: "user",
+                  email: "user@user.com",
+                  password: "password",
+                  password_confirmation: "password"
+                  )
+                }
+    let(:category){
+      Category.create(name: "Fighting")
+    }
+    xit 'cannot destroy category' do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      visit admin_categories_path
+      expect(page).to have_content("error")
+      #failing due to admin errors
+    end
+  end
 end

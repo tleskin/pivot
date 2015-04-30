@@ -38,4 +38,21 @@ RSpec.describe 'admin' do
       expect(page).to have_content("Butterfree")
     end
   end
+  context 'with invalid credentials' do
+    let(:user){
+      User.create(first_name: "default",
+                  last_name: "default",
+                  username: "default",
+                  email: "default@default.com",
+                  password: "password",
+                  password_confirmation: "password"
+                  )
+    }
+    xit 'cannot create item'do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    visit new_admin_item_path
+    expect(page).to have_content("error")
+    #this fails because user can create item currently
+    end
+  end
 end

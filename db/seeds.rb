@@ -14,11 +14,17 @@ class Seed
  def generate
    create_item
    create_category
+   User.create(first_name: "Rachel", last_name: "Warbelow", email: "demo+rachel@jumpstartlab.com", password: "password")
+   User.create(first_name: "Jeff", last_name: "Casimir", email: "demo+jeff@jumpstartlab.com", password: "password", username: "j3")
+   User.create(first_name: "Jorge", last_name: "Tellez", email: "demo+jorge@jumpstartlab.com", password: "password", username: "novohispano")
+   User.create(first_name: "Josh", last_name: "Cheek", email: "demo+josh@jumpstartlab.com", password: "password", username: "josh", role: 1)
  end
+
+
 
  def create_item
    item.each do |name, image|
-     Item.create(title: name, description: "yes", price: 12 ,image: image)
+     Item.create(title: name, description: "yes", price: 1200 ,image: image)
    end
  end
 
@@ -35,6 +41,7 @@ class Seed
  end
 
  private
+
 
  def item
    {"Pikachu"   => "http://core.dawnolmo.com/50_pokemon__9_pikachu_by_megbeth-d5fga3f_original.png",
