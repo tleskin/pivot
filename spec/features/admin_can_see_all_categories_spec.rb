@@ -13,6 +13,8 @@ RSpec.describe 'admin' do
     }
     it 'can see all categories' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      create(:category)
+      create(:category, name: "Fire")
       visit admin_categories_path
       expect(page).to have_content("Fire")
     end
