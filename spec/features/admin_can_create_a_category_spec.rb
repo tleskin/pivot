@@ -19,4 +19,21 @@ RSpec.describe 'admin' do
       expect(page).to have_content("Psychic")
     end
   end
+  context 'with invalid credentials' do
+    let(:user){
+      User.create(first_name: "user",
+                  last_name: "user",
+                  username: "user",
+                  email: "user@user.com",
+                  password: "password",
+                  password_confirmation: "password"
+                  )
+    }
+    xit 'cannot create a category' do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      visit new_admin_category_path
+      expect(page).to have_content("error")
+      #this fails, currently default users can create categories
+    end
+  end
 end
