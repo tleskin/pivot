@@ -16,7 +16,9 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
 
+  def cart
   end
 
   private

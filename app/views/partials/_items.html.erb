@@ -1,7 +1,9 @@
 <% items.each do |item| %>
+<div class= "<%= item.id %>">
 <%= item.title %> <br /><br />
 <img src="<%= item.image %>" height=100><br /><br />
 <%= link_to "Description", item_path(item.id) %><br />
-<button> Add to cart</button><br /><br /><br />
+<%= button_to "Add to Cart", purchases_path(item.id) %><br /><br /><br />
+</div>
 <!-- will change to ERB when routes are set -->
 <%end%>

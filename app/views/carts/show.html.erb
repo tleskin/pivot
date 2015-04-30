@@ -1,0 +1,6 @@
+<%= params %>
+<% @items.each_with_index do |item, i| %>
+  <%= item.title %>
+  <%= item.price %>
+  <%= @quantities[i] %><br />
+<% end %>

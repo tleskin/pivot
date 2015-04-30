@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :users
   resources :admins, only:[:show]
   resources :orders, only:[:show, :index]
+  resources :purchases, only:[:create]
+  resources :carts, only:[:show]
 
   get '/', to: 'unauth_sessions#show'
   root 'unauth_sessions#show'
