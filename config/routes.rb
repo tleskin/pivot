@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :items, only:[:show]
   resources :users
   resources :admins, only:[:show]
-  resources :orders, only:[:show, :index]
+  resources :orders, only:[:show, :index, :new, :create]
   resources :purchases, only:[:create]
   resources :carts, only:[:show]
 
