@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :carts, only:[:show]
 
   post '/orders/:id', to: 'orders#create'
+  post '/add_item', to: 'carts#add_item'
+  post '/subtract_item', to: 'carts#subtract_item'
   get '/', to: 'unauth_sessions#show'
   root 'unauth_sessions#show'
   get '/login', to: 'sessions#new'
