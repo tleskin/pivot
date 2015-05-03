@@ -14,7 +14,19 @@ class Cart
     contents[item_id.to_s] -= 1
     if contents[item_id.to_s] < 0
       contents[item_id.to_s] = 0
-    end 
+    end
+  end
+
+  def quantity(item_id)
+    contents[item_id]
+  end
+
+  def remove_item(item_id)
+    contents.delete(item_id)
+  end
+
+  def total_price
+    
   end
 
 end

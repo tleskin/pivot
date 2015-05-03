@@ -12,7 +12,6 @@ class CartsController < ApplicationController
   end
 
   def add_item
-    p "PARAMS ======>>>>>>> #{params}"
     @cart.add_item(params[:item_id])
     redirect_to cart_path(@cart)
   end
@@ -21,5 +20,10 @@ class CartsController < ApplicationController
     @cart.subtract_item(params[:item_id])
     redirect_to cart_path(@cart)
   end
+
+  def remove_item
+     @cart.remove_item(params[:item_id])
+     redirect_to cart_path(@cart)
+   end
 
 end
