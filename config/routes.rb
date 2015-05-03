@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :purchases, only:[:create]
   resources :carts, only:[:show]
 
+  post '/orders/:id', to: 'orders#create'
   get '/', to: 'unauth_sessions#show'
   root 'unauth_sessions#show'
   get '/login', to: 'sessions#new'
