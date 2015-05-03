@@ -11,4 +11,15 @@ class CartsController < ApplicationController
     @order = Order.last.id + 1 if Order.last
   end
 
+  def add_item
+    p "PARAMS ======>>>>>>> #{params}"
+    @cart.add_item(params[:item_id])
+    redirect_to cart_path(@cart)
+  end
+
+  def subtract_item
+    @cart.subtract_item(params[:item_id])
+    redirect_to cart_path(@cart)
+  end
+
 end
