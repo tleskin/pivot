@@ -3,11 +3,10 @@
 <%= order.created_at %><br />
 <%= order.status %> at <%= order.updated_at %><br />
 <% order.items.each do |item|  %>
- Title: <%= item.title %><br>
+ Item: <%= item.title %><br>
  Price: <%= item.price %><br>
- Quantity: <%= order.purchases.last.quantity %><br>
- <!-- not sure if above line actually gives accurate quantity, use id instead of last? -->
+ Quantity: <%= order.purchases.find_by(item_id: item.id).quantity %><br>
  <%= link_to "Description", item_path(item) %><br><br>
 <% end %>
-<!-- Order Total: <%= @cart.total_price %> -->
+ Total: <%= order.total %><br /><br />
 <% end %>

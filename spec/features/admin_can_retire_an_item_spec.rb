@@ -41,11 +41,10 @@ RSpec.describe 'admin' do
                     description: "Fire Breathing bastard",
                     price: 2000)
       }
-    xit 'cannot retire item' do
+    it 'cannot retire item' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit edit_admin_item_path(item)
-      expect(page).to have_content("error")
-      #failing due to admin before action issues
+      expect(page).to have_content("The page you were looking for doesn't exist")
     end
   end
 end

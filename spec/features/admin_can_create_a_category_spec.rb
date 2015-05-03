@@ -29,11 +29,10 @@ RSpec.describe 'admin' do
                   password_confirmation: "password"
                   )
     }
-    xit 'cannot create a category' do
+    it 'cannot create a category' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit new_admin_category_path
-      expect(page).to have_content("error")
-      #this fails, currently default users can create categories
+      expect(page).to have_content("The page you were looking for doesn't exist")
     end
   end
 end
