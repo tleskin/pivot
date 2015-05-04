@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :items
     resources :categories
+    get '/orders/completed', to: 'orders#completed'
+    get '/orders/ordered', to: 'orders#ordered'
+    get '/orders/cancelled', to: 'orders#cancelled'
+    get '/orders/paid', to: 'orders#paid'
+    resources :orders, only:[:show, :index, :update]
   end
 
   resources :categories, only:[:index, :show]
