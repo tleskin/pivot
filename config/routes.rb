@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :items
     resources :categories
+    get '/orders', to: 'orders#index'
     get '/:id', to: 'admins#show'
     namespace :items do
       put '/:id', to: 'items#retire'

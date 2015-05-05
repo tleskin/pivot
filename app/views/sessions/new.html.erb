@@ -1,5 +1,5 @@
 <%= form_for(:session, url: login_path) do |f| %>
-<%= f.label :username %><br />
+<%= f.label :email %><br />
 <%= f.text_field :username %><br /><br />
 <%= f.label :password %><br />
 <%= f.password_field :password %><br /><br />
@@ -7,5 +7,3 @@
 <% end %>
 <%= link_to "New User", new_user_path %><br />
 <%= flash[:notice] %><br />
-
-<%= link_to "Menu", root_path %><br />

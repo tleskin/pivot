@@ -3,25 +3,6 @@
 <%= form_for [:admin, @category] do |f| %>
 <%= f.label :name %><br /><br />
 <%= f.text_field :name %><br /><br />
-<% @items.each do |item| %>
-<%= item.title %>
-<!-- <% if item.categories.any?{|cat| cat == @category} %>
-<%= check_box "#{item.id}", checked_value = "true" %>
-<% else %>
-<%= check_box "#{item.id}", checked_value = "false" %>
-<% end %> -->
-<%= f.collection_check_boxes(:id, Category.all, :id, :name) %>
-<br />
-<% end %>
 
 <%= f.submit %><br />
-<% end %>
-
-
-<br /> <br /><br /> <br />
-
-
-<% @items.each do |item| %>
-<%= item.title %><% item.categories.each do |cat|  %>
-  <%= cat.name %><% end %><br />
 <% end %>
