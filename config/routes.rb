@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :items
     resources :categories
-    put '/items/:id', to: 'items#retire'
-    patch 'categories/:id', to: 'categories#update'
+    get '/:id', to: 'admins#show'
+    namespace :items do
+      put '/:id', to: 'items#retire'
+    end
+    namespace :categories do
+      patch '/:id', to: 'categories#update'
+    end
     get '/orders/completed', to: 'orders#completed'
     get '/orders/ordered', to: 'orders#ordered'
     get '/orders/cancelled', to: 'orders#cancelled'
@@ -12,10 +17,10 @@ Rails.application.routes.draw do
     resources :orders, only:[:show, :index, :update, :patch]
   end
 
+  resource  :admin, only:[:show]
   resources :categories, only:[:index, :show]
   resources :items, only:[:show]
   resources :users
-  resources :admins, only:[:show]
   resources :orders, only:[:show, :index, :new, :create, :update]
   resources :purchases, only:[:create]
   resources :carts, only:[:show]

@@ -5,9 +5,12 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:session][:username])
-    if @user && @user.authenticate(params[:session][:password])
+    if @user && @user.admin? && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to_landing_page(@user)
+      redirect_to user_path(@user)
+    elsif @user && @user.authenticate(params[:session][:password])
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
     else
       flash[:notice] = "Invalid login"
       render :new
