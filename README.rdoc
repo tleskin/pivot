@@ -17,7 +17,7 @@ Install any missing gems: "bundle"
 
 Make sure PostgreSQL is running on your local machine.
 
-Initialize the database using the command "rake db:rebuild" to create, migrate and seed the application.
+Initialize the database using the command "rake db:create db:migrate db:seed" to create, migrate and seed the application.
 
 Start your local server using: "rails s"
 
