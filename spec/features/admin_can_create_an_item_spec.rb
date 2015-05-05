@@ -47,10 +47,10 @@ RSpec.describe 'admin' do
                   password_confirmation: "password"
                   )
     }
-    xit 'cannot create item'do
+    it 'cannot create item'do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit new_admin_item_path
-    expect(page).to have_content("error")
+    expect(page).to have_content("The page you were looking for doesn't exist")
     #this fails because user can create item currently
     end
   end

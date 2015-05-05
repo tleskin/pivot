@@ -2,7 +2,8 @@
 <% @items.each_with_index do |item, i| %>
   <%= item.title %>
   <%= item.price %>
-  <%= number_field_tag 'quantity', @quantities[i] %><%= button_to "+", add_item_path(item_id: item.id) %><%= button_to "-", subtract_item_path(item_id: item.id) %><br />
+  <%= @cart.quantity(item.id.to_s) %><%= button_to "+", add_item_path(item_id: item.id) %><%= button_to "-", subtract_item_path(item_id: item.id) %><br />
+  <%= button_to "Remove Item", remove_item_path(item_id: item.id) %>
 <% end %>
 <br />
 <%= button_to "Submit Order", order_path(@order), method: "post" %>

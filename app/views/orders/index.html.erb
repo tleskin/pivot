@@ -3,6 +3,11 @@
 <%= order.created_at %><br />
 <%= order.status %> at <%= order.updated_at %><br />
 <% order.items.each do |item|  %>
-<%= item.title %> <%= item.price %>  <%= link_to "Description", item_path(item) %>
+<br />
+ <%= link_to "#{item.title}", item_path(item) %><br>
+ Price: <%= item.price %><br>
+ Quantity: <%= order.purchases.find_by(item_id: item.id).quantity %><br>
+<br>
 <% end %>
+ Total: <%= order.total %><br /><br />
 <% end %>

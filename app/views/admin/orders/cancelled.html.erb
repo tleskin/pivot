@@ -1,0 +1,5 @@
+<h2>Cancelled</h2><br />
+<% @cancelled_orders.each do |cancelled| %>
+<%= link_to "Order# #{cancelled.id}", admin_order_path(cancelled.id) %><br />
+<% end %>
+<%= "Total Cancelled Orders: #{@cancelled_orders.size}" %><br /><br />

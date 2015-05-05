@@ -10,16 +10,10 @@ class OrdersController < ApplicationController
   end
 
   def create
-    p "PARAMS================> #{params}"
-    # @cart.save
-    order_id = params[:id]
     OrderCreator.generate(@cart, current_user)
     session[:cart] = nil
     redirect_to root_path
     # redirect to confirmation page
-  end
-
-  def update
   end
 
 end

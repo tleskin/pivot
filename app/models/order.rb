@@ -5,4 +5,13 @@ class Order < ActiveRecord::Base
   belongs_to :user
   validates  :status, presence: true, inclusion: { in: %w(ordered completed cancelled paid) }
   validates  :user_id, presence: true
+
+  def total
+    purchases = self.purchases
+    subtotals = purchases.map do |purchase|
+      purchase.quantity * Item.find(purchase.item_id).price
+    end
+    subtotals.reduce(:+)
+  end
+
 end
