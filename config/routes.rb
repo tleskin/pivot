@@ -3,18 +3,20 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :items
     resources :categories
+    put '/items/:id', to: 'items#retire'
+    patch 'categories/:id', to: 'categories#update'
     get '/orders/completed', to: 'orders#completed'
     get '/orders/ordered', to: 'orders#ordered'
     get '/orders/cancelled', to: 'orders#cancelled'
     get '/orders/paid', to: 'orders#paid'
-    resources :orders, only:[:show, :index, :update]
+    resources :orders, only:[:show, :index, :update, :patch]
   end
 
   resources :categories, only:[:index, :show]
   resources :items, only:[:show]
   resources :users
   resources :admins, only:[:show]
-  resources :orders, only:[:show, :index, :new, :create]
+  resources :orders, only:[:show, :index, :new, :create, :update]
   resources :purchases, only:[:create]
   resources :carts, only:[:show]
 

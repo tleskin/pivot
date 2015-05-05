@@ -1,6 +1,6 @@
 <h1>My Past Orders </h1>
 <% current_user.orders.each do |order|%>
-<%= order.created_at %><br />
+Order # <%= order.id %> <%= order.created_at %><br />
 <%= order.status %> at <%= order.updated_at %><br />
 <% order.items.each do |item|  %>
 <br />

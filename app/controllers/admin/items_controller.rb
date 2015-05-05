@@ -34,6 +34,9 @@ class Admin::ItemsController < Admin::BaseController
     end
   end
 
+  def retire
+  end
+
   private
 
   def item_params

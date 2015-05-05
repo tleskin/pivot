@@ -1,10 +1,10 @@
 <h1><%= @category.name %></h1>
 <% @category.items.each do |item| %>
   <%= item.title %><br />
-  <%= item.image %><br />
+<img src="<%= item.image %>" height=100><br />
   <%= item.description %><br />
   <%= item.price %><br />
-  <%= link_to "Admin options", admin_item_path(item) %>
-<% end %>
 
-<%= link_to "Destroy", admin_category_path(@category), method: "delete" %>
+<% end %>
+<br />
+<%= link_to "Delete Category", admin_category_path(@category), method: "delete" %>

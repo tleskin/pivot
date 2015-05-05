@@ -14,4 +14,8 @@ class Order < ActiveRecord::Base
     subtotals.reduce(:+)
   end
 
+  def self.statuses
+    %w(ordered completed cancelled paid)
+  end
+
 end

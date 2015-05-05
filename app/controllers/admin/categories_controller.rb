@@ -22,6 +22,22 @@ class Admin::CategoriesController < Admin::BaseController
     end
   end
 
+  def edit
+    @category = Category.find(params[:id])
+    @items = Item.all
+  end
+
+  def update
+    byebug
+    @category = Category.find(params[:id])
+    @category.update(category_params)
+    items = Item.all
+    items.each do |item|
+      puts "Key #{params["#{item.id.to_s}"].keys}"
+    end
+    redirect_to admin_category_path(@category)
+  end
+
   def destroy
     category = Category.find(params[:id])
     category.destroy
@@ -31,7 +47,7 @@ class Admin::CategoriesController < Admin::BaseController
   private
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, category_ids: [])
   end
 
 end

@@ -1,1 +1,9 @@
-<%= render partial: "/partials/items", locals: { items: @items }%>
+<% @items.each do |item| %>
+<div class= "<%= item.id %>">
+<%= link_to item.title, edit_admin_item_path(item.id) %> <br /><br />
+<img src="<%= item.image %>" height=100><br /><br />
+$ <%= item.price %><br />
+<br />
+</div>
+<!-- will change to ERB when routes are set -->
+<%end%>
