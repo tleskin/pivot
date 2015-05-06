@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, email: true
-  validates_length_of :username, :maximum=>32, :minimum => 2
+  validates_length_of :username, :maximum=>32
   has_secure_password
 
   def admin?
@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   end
 
   def create_username
-    if self.username.nil?
+    if self.username.nil? || self.username.blank?
       self.username = self.email
     end
   end

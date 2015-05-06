@@ -13,3 +13,143 @@
  *= require_tree .
  *= require_self
  */
+
+ /* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+  font-family: 'Raleway', sans-serif;
+	line-height: 1;
+  font-family:Arial;
+}
+ol
+
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+.item{
+  float:left;
+  width: 18%;
+  background-color: #fff;
+  color: black;
+  text-align: center;
+  margin:10px 5px;
+  border:15px solid red;
+  border-radius:5px;
+}
+
+.banner{
+  background-color: black;
+}
+
+
+.top_box{
+  padding:20px;
+}
+.bottom_box{
+  background-color:#ccc;
+  padding:10px;
+}
+.navbar{
+  background-color:red;
+  border: 2px solid black;
+  text-align: center;
+}
+.header{
+  
+}
+.navbutton{
+  background: #494d4f;
+ background-image: -webkit-linear-gradient(top, #494d4f, #657782);
+ background-image: -moz-linear-gradient(top, #494d4f, #657782);
+ background-image: -ms-linear-gradient(top, #494d4f, #657782);
+ background-image: -o-linear-gradient(top, #494d4f, #657782);
+ background-image: linear-gradient(to bottom, #494d4f, #657782);
+ -webkit-border-radius: 28;
+ -moz-border-radius: 28;
+ border-radius: 28px;
+ font-family: Arial;
+ color: #ffffff;
+ font-size: 20px;
+ padding: 10px 20px 10px 20px;
+ text-decoration: none;
+}
+.navbutton:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+/* BUTTONS */
+.btn {
+  background: #d93434;
+  background-image: -webkit-linear-gradient(top, #d93434, #b82b2b);
+  background-image: -moz-linear-gradient(top, #d93434, #b82b2b);
+  background-image: -ms-linear-gradient(top, #d93434, #b82b2b);
+  background-image: -o-linear-gradient(top, #d93434, #b82b2b);
+  background-image: linear-gradient(to bottom, #d93434, #b82b2b);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14.top_box{
+      padding:20px;
+    }px;
+  padding: 5px 15px 5px 15px;
+  text-decoration: none;
+  margin-bottom:20px;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}

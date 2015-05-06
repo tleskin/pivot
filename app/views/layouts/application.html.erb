@@ -1,38 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <%= favicon_link_tag 'favicon.ico' %>
 
-  <title>DinnerDash</title>
+  <title>PokéNoms</title>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
-<body>
 
-  <nav>
-<% if current_user.nil? %>
-  <%= link_to "Login", login_path %>
-<% else %>
-  <%= button_to "Logout", logout_path, method: "delete" %>
-<% end %>
-<%= link_to "Home", root_path %>
-<%= link_to "My Account", user_path(current_user) if current_user %>
-<%= link_to "Categories", categories_path %>
-<%= link_to "My Cart", cart_path(@cart) %>
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-</nav>
-<% if current_user && current_user.admin? %>
-  <%= link_to "Admin Dashboard", admin_path(current_user)  %>
-<nav>
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-</nav>
-<% end %>
-<% flash.each do |name, msg| %>
- <%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-<%= yield %>
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-</body>
-</html>
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+
+
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar">
+    <% if current_user.nil? %>
+      <%= link_to "Login", login_path %>
+    <% else %>
+      <%= button_to "Logout", logout_path, method: "delete" %>
+    <% end %>
+    <%= link_to "Home", root_path , class: "navbutton"%>
+    <%= link_to "My Account", user_path(current_user), class: "navbutton" if current_user %>
+    <h1 class="header">PokéNoms</h1>
+    <%= link_to "Categories", categories_path, class: "navbutton" %>
+    <%= link_to "My Cart", cart_path(@cart), class: "navbutton" %>
+
+    </nav>
+    <% if current_user && current_user.admin? %>
+      <%= link_to "Admin Dashboard", admin_path(current_user)  %>
+    <nav>
+
+    </nav>
+    <% end %>
+    <% flash.each do |name, msg| %>
+    <img src = "http://images6.fanpop.com/image/photos/36500000/Natasha1830-image-natasha1830-36529271-474-500.gif" height=150>
+     <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+
+    <%= yield %>
+
+
+  </div><!-- container -->
+
+  </body>
+  </html>

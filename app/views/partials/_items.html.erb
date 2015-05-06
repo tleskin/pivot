@@ -1,9 +1,16 @@
 <% items.each do |item| %>
-<div class= "<%= item.id %>">
-<%= link_to item.title, item_path(item.id) %> <br /><br />
-<img src="<%= item.image %>" height=100><br /><br />
-$ <%= item.price %>
-<%= button_to "Add to Cart", purchases_path(item.id) %><br /><br /><br />
+<div class = "item" id= "<%= item.id %>">
+  <div class="inner_box">
+    <div class="top_box">
+      <%= item.title%> <br /><br />
+      <img src="<%= item.image %>" height=100><br /><br />
+      <p>$ <%= item.price %></p>
+  </div><!--inner_box-->
+  </div><!--topbox-->
+    <div class="bottom_box">
+      <%= button_to "Add to Cart", purchases_path(item.id), class: "btn" %>
+      <%= link_to "More", item_path(item.id), class: "btn"%><br /><br /><br />
+    </div><!--bottombox-->
 </div>
-<!-- will change to ERB when routes are set -->
-<%end%>
+  <!-- will change to ERB when routes are set -->
+  <%end%>
