@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+  has_many  :reviews
   has_many  :purchases
   has_many  :items_categories
   has_many  :categories, through: :items_categories
@@ -13,6 +14,11 @@ class Item < ActiveRecord::Base
 
   def self.active_items
     Item.where(retired: false)
+  end
+
+  def average_score
+    scores = reviews.map(&:score)
+    scores.reduce(:+)/scores.length
   end
 
 end

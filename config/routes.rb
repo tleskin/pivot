@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
 
   resource  :admin, only:[:show]
+  resources :reviews
   resources :categories, only:[:index, :show]
   resources :items, only:[:show]
   resources :users

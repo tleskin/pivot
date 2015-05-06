@@ -18,7 +18,7 @@ RSpec.describe 'user' do
       user.save
       fill_in "session[username]", with: "srones"
       fill_in "session[password]", with: "password"
-      click_link_or_button "Login"
+      click_button "Login"
       click_link_or_button "My Orders"
       expect(page).to have_content("completed")
     end

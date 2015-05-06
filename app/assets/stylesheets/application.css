@@ -49,10 +49,9 @@ body {
 	line-height: 1;
   font-family:Arial;
 }
-ol
 
-	list-style: none;
-}
+
+
 blockquote, q {
 	quotes: none;
 }
@@ -96,7 +95,7 @@ table {
   text-align: center;
 }
 .header{
-  
+
 }
 .navbutton{
   background: #494d4f;
@@ -123,8 +122,7 @@ table {
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
 }
-/* BUTTONS */
-.btn {
+/*.btn {
   background: #d93434;
   background-image: -webkit-linear-gradient(top, #d93434, #b82b2b);
   background-image: -moz-linear-gradient(top, #d93434, #b82b2b);
@@ -138,11 +136,7 @@ table {
   color: #ffffff;
   font-size: 14.top_box{
       padding:20px;
-    }px;
-  padding: 5px 15px 5px 15px;
-  text-decoration: none;
-  margin-bottom:20px;
-}
+}*/
 
 .btn:hover {
   background: #3cb0fd;

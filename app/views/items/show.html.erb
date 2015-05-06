@@ -1,5 +1,39 @@
+<div class="item">
 <br><h1><%= @item.title %></h1><br />
+
 <img src="<%= @item.image %>" height=100><br />
+<p>$<%= @item.price %></p>
 Description: <%= @item.description %><br />
-$<%= @item.price %>
+
+</div>
+
+<h3>Reviews:</h3><br /><br />
+<% @reviews.each do |review| %>
+<br /><br />
+Score: <%= review.score %><br />
 <br />
+  <%= review.review %><br />
+  <%= User.find(review.user_id).first_name %> <%= User.find(review.user_id).last_name %>
+
+<% end %>
+<br />
+<br />
+
+<%= form_for(@review) do |f| %>
+<%= f.label :review %>
+<%= f.text_area :review %>
+<%= f.label :review %>
+<%= radio_button_tag(:score, "1") %>
+<%= label_tag(:review, "1") %>
+<%= radio_button_tag(:score, "2") %>
+<%= label_tag(:review, "2") %>
+<%= radio_button_tag(:score, "3") %>
+<%= label_tag(:review, "3") %>
+<%= radio_button_tag(:score, "4") %>
+<%= label_tag(:review, "4") %>
+<%= radio_button_tag(:score, "5") %>
+<%= label_tag(:review, "5") %>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :item_id, value: @item.id %>
+<%= f.submit %>
+<%end %>

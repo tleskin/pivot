@@ -20,7 +20,7 @@ RSpec.describe 'admin' do
       visit admin_categories_path
       expect(page).to have_content("Fighting")
       visit admin_category_path(category)
-      click_link_or_button "Destroy"
+      click_link_or_button "Delete"
       expect(page).to_not have_content("Fighting")
     end
   end

@@ -14,7 +14,7 @@ RSpec.describe 'admin user' do
       fill_in "session[username]", with: "xjones"
       fill_in "session[password]", with: "password"
       click_button "Login"
-      expect(page).to have_content("Admin Steve")
+      expect(page).to have_content("Admin Dashboard Welcome Steve")
     end
   end
 end

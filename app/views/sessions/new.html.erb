@@ -1,3 +1,4 @@
+<div id="login">
 <%= form_for(:session, url: login_path) do |f| %>
 <%= f.label :email %><br />
 <%= f.text_field :username %><br /><br />
@@ -7,3 +8,4 @@
 <% end %>
 <%= link_to "New User", new_user_path %><br />
 <%= flash[:notice] %><br />
+</div>

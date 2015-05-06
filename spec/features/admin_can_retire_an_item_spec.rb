@@ -20,7 +20,7 @@ RSpec.describe 'admin' do
     it 'can edit an item' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
       visit edit_admin_item_path(item)
-      fill_in "Retired", with: true
+      select "true", from: "item[retired]"
       click_button "Update Item"
       visit root_path
       expect(page).to_not have_content("Charizard")
