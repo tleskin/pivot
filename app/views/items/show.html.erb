@@ -4,14 +4,14 @@
 <img src="<%= @item.image %>" height=100><br />
 <p>$<%= @item.price %></p>
 Description: <%= @item.description %><br />
-<%= button_to "Add to Cart", purchases_path(@item.id), class: "btn" %>
+<%= button_to "Add to Cart", purchases_path(@item.id), class: "btn" if @item.retired==false %>
 
 </div>
 <div class = "reviews">
 <h3>Reviews:</h3>
 <% @reviews.each do |review| %>
 <br /><br />
-<%= review.title %>Score: <%= review.score %><br />
+<%= review.title %><br />Score: <%= review.score %><br />
 <br />
   <%= review.review %><br />
   <%= review.user.first_name %> <%= review.user.last_name %>

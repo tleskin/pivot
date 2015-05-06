@@ -1,2 +1,6 @@
+<div class = "welcome">
 <h1>Welcome <%= current_user.first_name %></h1>
-<%= link_to "My Orders", orders_path %>
+</div>
+<br />
+<%= link_to "My Orders", orders_path, class: 'btn' %>
+<%= link_to "Edit Profile", edit_user_path(current_user), class:'btn' %>

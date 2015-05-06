@@ -10,7 +10,6 @@ RSpec.describe 'unauthenticated user can see a details of an individual item' do
   it 'shows items' do
     expect(item).to be_valid
     visit item_path(item)
-    # save_and_open_page
-    # expect(page).to have_content("Zapdos")
+    expect(page).to have_content("Zapdos")
   end
 end

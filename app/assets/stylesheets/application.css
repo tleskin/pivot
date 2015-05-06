@@ -45,7 +45,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: Raleway, sans-serif;
 	line-height: 1;
   font-family:Arial;
 }
@@ -64,13 +64,22 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+.welcome{
+	font-family: Raleway;
+	font-size: 28px;
+	color: white;
+	background-color: rgba(0,0,200,.5);
+	width: 80%;
+	height: 1.5em;
+	padding: 5px 5px 5px 5px;
+}
 
 .item{
   float:left;
   width: 18%;
   background-color: #fff;
   color: black;
+	font-family: Raleway, sans-serif;
   text-align: center;
   margin:10px 5px;
   border:15px solid rgba(255, 0, 0, .7);
@@ -96,12 +105,18 @@ table {
   border: 2px solid black;
   text-align: center;
 	height: 45px;
+	padding-top: 10px;
 }
 .header{
 
 }
+.category{
+	float:left;
+	padding: 20px 20px 20px 20px;
+}
 .logout{
 	float:right;
+	margin-right: 5px;
 }
 .login{
 	background-color:white;
@@ -129,12 +144,13 @@ table {
  -webkit-border-radius: 28;
  -moz-border-radius: 28;
  border-radius: 28px;
- font-family: Arial;
+ font-family: 'Raleway', sans-serif;
  color: #ffffff;
  font-size: 20px;
- padding: 10px 20px 10px 20px;
- margin-top: 12px;
+ padding: 5px 15px 5px 15px;
+ margin-top: 2px;
  text-decoration: none;
+ border: solid 1.5px black;
 }
 .navbutton:hover {
   background: #3cb0fd;
@@ -144,6 +160,7 @@ table {
   background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
+
 }
 .btn {
   background: #d93434;
@@ -155,7 +172,7 @@ table {
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
   border-radius: 28px;
-  font-family: Arial;
+  font-family: Raleway, Arial;
   color: #ffffff;
 	padding: 5px 15px 5px 15px;
   font-size: 14;

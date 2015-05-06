@@ -8,7 +8,7 @@
   </div><!--inner_box-->
   </div><!--topbox-->
     <div class="bottom_box">
-      <%= button_to "Add to Cart", purchases_path(item.id), class: "btn" %>
+      <%= button_to "Add to Cart", purchases_path(item.id), class: "btn" if item.retired==false%>
       <%= link_to "More", item_path(item.id), class: "btn"%><br /><br /><br />
     </div><!--bottombox-->
 </div>
