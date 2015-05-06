@@ -73,7 +73,9 @@ table {
   color: black;
   text-align: center;
   margin:10px 5px;
-  border:15px solid red;
+  border:15px solid rgba(255, 0, 0, .7);
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
   border-radius:5px;
 }
 
@@ -93,8 +95,28 @@ table {
   background-color:red;
   border: 2px solid black;
   text-align: center;
+	height: 45px;
 }
 .header{
+
+}
+.logout{
+	float:right;
+}
+.login{
+	background-color:white;
+	color:black;
+	float:left;
+	border: 1px solid black;
+	margin-top: 12px;
+	margin-left: 10px;
+	padding: 2px 2px 2px 2px;
+	text-decoration: none;
+	font-size: 14px;
+}
+.reviews{
+	float:right;
+	margin-top: 25px;
 
 }
 .navbutton{
@@ -111,6 +133,7 @@ table {
  color: #ffffff;
  font-size: 20px;
  padding: 10px 20px 10px 20px;
+ margin-top: 12px;
  text-decoration: none;
 }
 .navbutton:hover {
@@ -122,7 +145,7 @@ table {
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
 }
-/*.btn {
+.btn {
   background: #d93434;
   background-image: -webkit-linear-gradient(top, #d93434, #b82b2b);
   background-image: -moz-linear-gradient(top, #d93434, #b82b2b);
@@ -134,9 +157,13 @@ table {
   border-radius: 28px;
   font-family: Arial;
   color: #ffffff;
-  font-size: 14.top_box{
+	padding: 5px 15px 5px 15px;
+  font-size: 14;
+	text-decoration: none;
+}
+.top_box{
       padding:20px;
-}*/
+}
 
 .btn:hover {
   background: #3cb0fd;

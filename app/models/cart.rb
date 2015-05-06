@@ -12,8 +12,8 @@ class Cart
 
   def subtract_item(item_id)
     contents[item_id.to_s] -= 1
-    if contents[item_id.to_s] < 0
-      contents[item_id.to_s] = 0
+    if contents[item_id.to_s] < 1
+      contents[item_id.to_s] = 1
     end
   end
 
@@ -26,7 +26,7 @@ class Cart
   end
 
   def total_price
-    
+
   end
 
 end

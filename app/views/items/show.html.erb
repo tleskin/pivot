@@ -4,36 +4,42 @@
 <img src="<%= @item.image %>" height=100><br />
 <p>$<%= @item.price %></p>
 Description: <%= @item.description %><br />
+<%= button_to "Add to Cart", purchases_path(@item.id), class: "btn" %>
 
 </div>
-
-<h3>Reviews:</h3><br /><br />
+<div class = "reviews">
+<h3>Reviews:</h3>
 <% @reviews.each do |review| %>
 <br /><br />
-Score: <%= review.score %><br />
+<%= review.title %>Score: <%= review.score %><br />
 <br />
   <%= review.review %><br />
-  <%= User.find(review.user_id).first_name %> <%= User.find(review.user_id).last_name %>
-
+  <%= review.user.first_name %> <%= review.user.last_name %>
+<% if review.user == current_user %>
+  <%= link_to "Edit", edit_review_path(review)  %> <%= link_to "Delete", review_path(review), method: "delete" %>
+<% end %>
 <% end %>
 <br />
 <br />
-
-<%= form_for(@review) do |f| %>
-<%= f.label :review %>
-<%= f.text_area :review %>
-<%= f.label :review %>
-<%= radio_button_tag(:score, "1") %>
-<%= label_tag(:review, "1") %>
-<%= radio_button_tag(:score, "2") %>
-<%= label_tag(:review, "2") %>
-<%= radio_button_tag(:score, "3") %>
-<%= label_tag(:review, "3") %>
-<%= radio_button_tag(:score, "4") %>
-<%= label_tag(:review, "4") %>
-<%= radio_button_tag(:score, "5") %>
-<%= label_tag(:review, "5") %>
-<%= f.hidden_field :user_id, value: current_user.id %>
-<%= f.hidden_field :item_id, value: @item.id %>
-<%= f.submit %>
-<%end %>
+<% if current_user %>
+  <%= form_for(@review) do |f| %>
+  <%= f.label :review %><br />
+  <%= f.text_field :title %><br />
+  <%= f.text_area :review %>
+  <%= f.label :score %>
+  <%= radio_button_tag(:score, "1") %>
+  <%= label_tag(:review, "1") %>
+  <%= radio_button_tag(:score, "2") %>
+  <%= label_tag(:review, "2") %>
+  <%= radio_button_tag(:score, "3") %>
+  <%= label_tag(:review, "3") %>
+  <%= radio_button_tag(:score, "4") %>
+  <%= label_tag(:review, "4") %>
+  <%= radio_button_tag(:score, "5") %>
+  <%= label_tag(:review, "5") %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :item_id, value: @item.id %>
+  <%= f.submit %>
+  <%end %>
+<% end %>
+</div>

@@ -1,6 +1,1 @@
-<% @category_items.each do |item| %>
-<%= link_to "#{item.title}", item_path(item.id) %> <br /><br />
-<img src="<%= item.image %>" height=100><br /><br />
-<button> Add to cart</button><br /><br /><br />
-<!-- will change to ERB when routes are set -->
-<%end%>
+<%= render partial: "/partials/items", locals: { items: @items }%>
