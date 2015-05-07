@@ -19,11 +19,8 @@ Make sure PostgreSQL is running on your local machine.
 
 Initialize the database using the command "rake db:create db:migrate db:seed" to create, migrate and seed the application.
 
-Start your local server using: "rails s"
-
 Then go to 'https://still-plateau-5936.herokuapp.com/' to checkout the site.
 
 This project was built on Rails 2.1.5
 
 Run the test suite using: "rspec"
-
