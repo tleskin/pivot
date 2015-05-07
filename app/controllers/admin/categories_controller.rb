@@ -17,7 +17,7 @@ class Admin::CategoriesController < Admin::BaseController
     if @category.save
       redirect_to admin_categories_path
     else
-      flash[:notice] = "Must name category"
+      flash[:errors] = "Must name category"
       render :new
     end
   end
@@ -28,13 +28,8 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def update
-    byebug
     @category = Category.find(params[:id])
     @category.update(category_params)
-    items = Item.all
-    items.each do |item|
-      puts "Key #{params["#{item.id.to_s}"].keys}"
-    end
     redirect_to admin_category_path(@category)
   end
 

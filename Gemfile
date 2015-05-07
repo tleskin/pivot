@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 gem 'bootstrap-sass', '~> 3.2.0'
 
 gem 'autoprefixer-rails'
-
 gem 'email_validation'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -39,6 +38,7 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'simplecov', require: false
   gem 'capybara'
   gem 'launchy'
   gem 'sqlite3'

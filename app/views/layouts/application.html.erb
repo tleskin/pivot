@@ -35,7 +35,6 @@
 
   </head>
   <body>
-    <div class="container">
       <nav class="navbar">
     <% if current_user.nil? %>
       <%= link_to "Login", login_path, class:'login' %>
@@ -45,19 +44,21 @@
     <%= link_to "Home", root_path , class: "navbutton"%>
     <%= link_to "My Account", user_path(current_user), class: "navbutton" if current_user %>
     <%= link_to "Categories", categories_path, class: "navbutton" %>
-    <%= link_to "My Cart", cart_path(@cart), class: "navbutton" %>
+    <%= link_to "My Cart", cart_path(@cart), class: "navbutton", id: "mycart" %>
 
     </nav>
+    <div class="container">
+
+    <div class="flash">
     <% if current_user && current_user.admin? %>
       <%= link_to "Admin Dashboard", admin_path(current_user)  %>
-    <nav>
-
-    </nav>
     <% end %>
     <% flash.each do |name, msg| %>
-    <% unless msg.blank? %><img src = "http://images6.fanpop.com/image/photos/36500000/Natasha1830-image-natasha1830-36529271-474-500.gif" height=150 ><% end %>
-     <%= content_tag :div, msg, :id => "flash_#{name}" %>
+     <%= content_tag :div, msg, :id => "flash_#{name}", class:'error' %><br />
+     <% unless msg.blank? %><img src = "http://images6.fanpop.com/image/photos/36500000/Natasha1830-image-natasha1830-36529271-474-500.gif" height=150 ><% end %>
+
     <% end %>
+  </div>
 
     <%= yield %>
 

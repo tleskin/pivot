@@ -1,10 +1,9 @@
-<h1>My Cart</h1>
 <% @items.each_with_index do |item, i| %>
   <%= item.title %>
-  <%= item.price %>
-  <%= @cart.quantity(item.id.to_s) %><%= button_to "+", add_item_path(item_id: item.id) %><%= button_to "-", subtract_item_path(item_id: item.id) %><br />
+  <%= number_to_currency(item.dec_price) %><br />
+  Quantity: <%= @cart.quantity(item.id.to_s) %><%= button_to "+", add_item_path(item_id: item.id) %><%= button_to "-", subtract_item_path(item_id: item.id) %><br />
   <%= button_to "Remove Item", remove_item_path(item_id: item.id) %>
 <% end %>
 <br />
-<%= button_to "Submit Order", order_path(@order), method: "post" %>
+<%= button_to "Submit Order", order_path(@order), method: "post" unless @items.empty?%>
 <br />

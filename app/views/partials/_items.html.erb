@@ -4,7 +4,7 @@
     <div class="top_box">
       <%= item.title%> <br /><br />
       <img src="<%= item.image %>" height=100><br /><br />
-      <p>$ <%= item.price %></p>
+      <p> <%= number_to_currency(item.dec_price) %></p>
   </div><!--inner_box-->
   </div><!--topbox-->
     <div class="bottom_box">

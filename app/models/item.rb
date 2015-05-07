@@ -16,6 +16,10 @@ class Item < ActiveRecord::Base
     Item.where(retired: false)
   end
 
+  def dec_price
+     price/100
+  end
+
   def average_score
     scores = reviews.map(&:score)
     scores.reduce(:+)/scores.length

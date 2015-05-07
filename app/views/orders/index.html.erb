@@ -5,9 +5,9 @@ Order # <%= order.id %> <%= order.created_at %><br />
 <% order.items.each do |item|  %>
 <br />
  <%= link_to "#{item.title}", item_path(item) %><br>
- Price: <%= item.price %><br>
+ Price: <%= number_to_currency(item.dec_price) %><br>
  Quantity: <%= order.purchases.find_by(item_id: item.id).quantity %><br>
 <br>
 <% end %>
- Total: <%= order.total %><br /><br />
+ Total: <%= number_to_currency(order.total/100) if order.total %><br /><br />
 <% end %>

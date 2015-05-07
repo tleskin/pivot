@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
 
   def index
+    flash[:errors] = nil
     @categories = Category.all
   end
 

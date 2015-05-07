@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      flash[:notice] = "Invalid login"
+      flash[:errors] = "Invalid login"
       render :new
     end
   end

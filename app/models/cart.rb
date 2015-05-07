@@ -2,7 +2,7 @@ class Cart
 
   attr_reader :contents
   def initialize(initial_contents)
-    @contents =  initial_contents || {}
+    @contents =  initial_contents || Hash.new()
   end
 
   def add_item(item_id)
@@ -23,10 +23,6 @@ class Cart
 
   def remove_item(item_id)
     contents.delete(item_id)
-  end
-
-  def total_price
-
   end
 
 end

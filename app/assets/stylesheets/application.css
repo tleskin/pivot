@@ -50,6 +50,10 @@ body {
   font-family:Arial;
 }
 
+.container{
+	display:block;
+	margin:0 auto;
+}
 
 
 blockquote, q {
@@ -67,16 +71,21 @@ table {
 .welcome{
 	font-family: Raleway;
 	font-size: 28px;
-	color: white;
-	background-color: rgba(0,0,200,.5);
+	color: #993333;
+	background-color: white;
 	width: 80%;
 	height: 1.5em;
 	padding: 5px 5px 5px 5px;
 }
 
+.error{
+	float:left;
+	width: 25%
+}
+
 .item{
   float:left;
-  width: 18%;
+  width: 27.8%;
   background-color: #fff;
   color: black;
 	font-family: Raleway, sans-serif;
@@ -89,7 +98,7 @@ table {
 }
 
 .banner{
-  background-color: black;
+	float:right;
 }
 
 
@@ -108,7 +117,7 @@ table {
 	padding-top: 10px;
 }
 .header{
-
+	width: 100%
 }
 .category{
 	float:left;
@@ -177,6 +186,7 @@ table {
 	padding: 5px 15px 5px 15px;
   font-size: 14;
 	text-decoration: none;
+	margin-bottom:20px;
 }
 .top_box{
       padding:20px;
@@ -190,4 +200,10 @@ table {
   background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
+}
+
+@media (max-width: 500px) {
+	.item{
+		width: 100%;
+	}
 }

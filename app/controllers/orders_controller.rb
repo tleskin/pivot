@@ -1,12 +1,11 @@
 class OrdersController < ApplicationController
 
-
   def index
 
   end
 
   def show
-
+    @order = Order.find(params[:id])
   end
 
   def create
@@ -17,7 +16,6 @@ class OrdersController < ApplicationController
       session[:cart] = nil
       redirect_to root_path
     end
-    # redirect to confirmation page
   end
 
   def update

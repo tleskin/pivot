@@ -1,6 +1,7 @@
 FactoryGirl.define do
 
   factory :item do
+             id    1
              title "Pikachu"
              description "Good"
              price 900

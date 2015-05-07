@@ -7,7 +7,8 @@ class CartsController < ApplicationController
       @items << Item.find(item_id)
       @quantities << quantity
     end
-    @order = Order.last.id + 1 || 1
+    @order = Order.last.id if Order.last
+    @order ||= 1
   end
 
   def add_item
