@@ -19,22 +19,11 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- FONT
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-    <!-- CSS
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-    <link rel="stylesheet" href="css/custom.css">
-
-    <!-- Favicon
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
-
-
 
   </head>
   <body>
+    <!-- <%= render :partial => 'partials/navbar' %> -->
+
       <nav class="navbar">
     <% if current_user.nil? %>
       <%= link_to "Login", login_path, class:'login' %>
