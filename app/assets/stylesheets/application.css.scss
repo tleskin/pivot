@@ -10,14 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
-
- /* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-@import "bootstrap-sprockets"
-@import "bootstrap"
+ 
+@import "bootstrap-sprockets";
+@import "bootstrap";
