@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :businesses, only: [:index, :show]
   end
 
-  resources :carts, only: [:show]
+  resources :portfolio, only: [:show]
   resources :categories, only: [:index, :show]
 
   get        '/home', to: 'static_pages#home'

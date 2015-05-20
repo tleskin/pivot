@@ -1,12 +1,12 @@
-class CartsController < ApplicationController
+class PortfolioController < ApplicationController
 
   def show
     @items = []
     @quantities = []
-    @cart.contents.each do |item_id, quantity|
-      @items << Item.find(item_id)
-      @quantities << quantity
-    end
+    # @cart.contents.each do |item_id, quantity|
+    #   @items << Item.find(item_id)
+    #   @quantities << quantity
+    # end
     @order = Order.last.id if Order.last
     @order ||= 1
   end

@@ -1,4 +1,4 @@
-class Item < ActiveRecord::Base
+class Business < ActiveRecord::Base
   has_many  :reviews
   has_many  :purchases
   has_many  :items_categories

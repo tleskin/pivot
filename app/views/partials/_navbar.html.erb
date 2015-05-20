@@ -18,7 +18,7 @@
             </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "My Cart", cart_path(@cart), class: "navbutton", id: "mycart" %></li>
+        <li><%= link_to "My Portfolio", portfolio_path(@portfolio), class: "navbutton", id: "myportfolio" %></li>
           <li class="dropdown">
             <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -30,7 +30,7 @@
         <li><%= link_to "Home", root_path , class: "navbutton"%><li>
         <li><%= link_to "My Account", user_path(current_user), class: "navbutton" if current_user %><li>
         <li><%= link_to "Categories", categories_path, class: "navbutton" %><li>
-        <li><%= link_to "My Cart", cart_path(@cart), class: "navbutton", id: "mycart" %><li>
+        <li><%= link_to "My Portfolio", portfolio_path(@portfolio), class: "navbutton", id: "myportfolio" %><li>
         </li>
 
       </ul>
