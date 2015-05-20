@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   post      '/login', to: 'sessions#create'
   delete   '/logout', to: 'sessions#destroy'
   
+  resources :users
+
   root 'static_pages#home'
 
   # namespace :admin do
@@ -39,7 +41,6 @@ Rails.application.routes.draw do
   # resources :reviews
   # resources :categories, only:[:index, :show]
   # resources :items, only:[:show]
-  # resources :users
   # resources :orders, only:[:show, :index, :new, :create, :update]
   # resources :purchases, only:[:create]
   # resources :carts, only:[:show]
