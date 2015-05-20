@@ -29,20 +29,41 @@ table {
 }
 
 .item{
-  float:left;
-  width: 27.8%;
   background-color: #fff;
   color: black;
 	font-family: Raleway, sans-serif;
   text-align: center;
-  margin:10px 5px;
-  border:15px solid black;
+  border:1px solid black;
+	padding: 15px 15px 15px 15px;
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
   border-radius:5px;
 }
 
-.top_box{
+.col-lg-3, .col-md-4, .col-sm-6 {
+padding-left: 0px;
+padding-right: 0px;
+}
+
+.info-box {
+	display:none;
+	clear:both;
+}
+
+.regions {
+	display: block;
+	align: center;
+}
+
+.regions img {
+	width: 300px;
+}
+
+.item img {
+	width: 170px;
+}
+
+.top_box {
   padding:20px;
 }
 .bottom_box{
