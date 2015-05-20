@@ -47,6 +47,11 @@ $(function() {
 });
 </script>
 
+<% @regions.each do |region| %>
+<%= image_tag(region.image) %><br>
+<%= region.name %><br>
+<% end %>
+
 </body>
 
 </html>
