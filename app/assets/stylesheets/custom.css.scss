@@ -29,23 +29,25 @@ table {
 }
 
 .item{
-  width: 27.8%;
   background-color: #fff;
   color: black;
 	font-family: Raleway, sans-serif;
   text-align: center;
+  border:1px solid black;
 	padding: 15px 15px 15px 15px;
-  border:15px solid black;
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
   border-radius:5px;
 }
+
+.col-lg-3, .col-md-4, .col-sm-6 {
+padding-left: 0px;
+padding-right: 0px;
+}
+
 .info-box {
 	display:none;
 	clear:both;
-}
-
-.region {
 }
 
 .regions {
@@ -54,7 +56,7 @@ table {
 }
 
 .regions img {
-	width: 200px;
+	width: 300px;
 }
 
 .item img {
