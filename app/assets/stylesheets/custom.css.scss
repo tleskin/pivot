@@ -29,17 +29,29 @@ table {
 }
 
 .item{
-  float:left;
   width: 27.8%;
   background-color: #fff;
   color: black;
 	font-family: Raleway, sans-serif;
   text-align: center;
-  margin:10px 5px;
+	padding: 15px 15px 15px 15px;
   border:15px solid black;
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
   border-radius:5px;
+}
+
+.regions {
+	display: block;
+	align: center;
+}
+
+.regions img {
+	width: 200px;
+}
+
+.item img {
+	width: 170px;
 }
 
 .top_box{
