@@ -8,41 +8,31 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <p><%= link_to "Lend.io", root_path, class: "navbar-brand" %></p>
+      <a class="logo" href="#"><%= image_tag("lendio.png")%></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="/items" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><%= link_to "Regions" %></li>
+        <li><%= link_to "Regions", root_path %></li>
+
             </ul>
-          </ul>
-        </li>
-      </ul>
+
       <ul class="nav navbar-nav navbar-right">
-        <%= link_to "My Cart", cart_path(@cart), class: "navbutton", id: "mycart" %>
-
+        <li><%= link_to "My Cart", cart_path(@cart), class: "navbutton", id: "mycart" %></li>
+          <li class="dropdown">
+            <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
         <% if current_user.nil? %>
-          <%= link_to "Login", login_path, class:'login' %>
+          <li><%= link_to "Login", login_path, class:'login' %></li>
         <% else %>
-          <%= button_to "Logout", logout_path, method: "delete", class: 'logout'%>
+          <li><%= button_to "Logout", logout_path, method: "delete", class: 'logout'%><li>
         <% end %>
-        <%= link_to "Home", root_path , class: "navbutton"%>
-        <%= link_to "My Account", user_path(current_user), class: "navbutton" if current_user %>
-        <%= link_to "Categories", categories_path, class: "navbutton" %>
-
-
-        <% else %>
-        <li class="dropdown">
-          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><%= link_to "Log In", login_path %></li>
-            <li><%= link_to "Sign Up", new_user_path %></li>
-          </ul>
+        <li><%= link_to "Home", root_path , class: "navbutton"%><li>
+        <li><%= link_to "My Account", user_path(current_user), class: "navbutton" if current_user %><li>
+        <li><%= link_to "Categories", categories_path, class: "navbutton" %><li>
+        <li><%= link_to "My Cart", cart_path(@cart), class: "navbutton", id: "mycart" %><li>
         </li>
-        <% end %>
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

@@ -3,40 +3,16 @@
 <head>
   <%= favicon_link_tag 'favicon.ico' %>
 
-  <title>PokéNoms</title>
+  <title>Lend.io</title>
   <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
-    <!-- Basic Page Needs
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Mobile Specific Metas
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
   </head>
   <body>
-    <!-- <%= render :partial => 'partials/navbar' %> -->
+    <%= render :partial => 'partials/navbar' %>
 
-      <nav class="navbar">
-    <% if current_user.nil? %>
-      <%= link_to "Login", login_path, class:'login' %>
-    <% else %>
-      <%= button_to "Logout", logout_path, method: "delete", class: 'logout'%>
-    <% end %>
-    <%= link_to "Home", root_path , class: "navbutton"%>
-    <%= link_to "My Account", user_path(current_user), class: "navbutton" if current_user %>
-    <%= link_to "Categories", categories_path, class: "navbutton" %>
-    <%= link_to "My Cart", cart_path(@cart), class: "navbutton", id: "mycart" %>
 
-    </nav>
-    <div class="container">
 
     <div class="flash">
     <% if current_user && current_user.admin? %>
@@ -47,12 +23,17 @@
      <% unless msg.blank? %><img src = "http://images6.fanpop.com/image/photos/36500000/Natasha1830-image-natasha1830-36529271-474-500.gif" height=150 ><% end %>
 
     <% end %>
-  </div>
 
     <%= yield %>
-
-
-  </div><!-- container -->
+  </div>
+<!-- footer -->
+  <div id="wrapper">
+    <div id="footer">
+      <h4><strong>Lend.io</strong></h4>
+      <p>Denver, CO</p>
+      <p>About Us</p>
+    </div><!-- #footer -->
+  </div><!-- #wrapper -->
 
   </body>
-  </html>
+</html>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root "home#index"
+
   namespace :admin do
     resources :items
     resources :categories
@@ -31,8 +33,7 @@ Rails.application.routes.draw do
   post '/add_item', to: 'carts#add_item'
   post '/subtract_item', to: 'carts#subtract_item'
   post '/remove_item', to: 'carts#remove_item'
-  get '/', to: 'unauth_sessions#show'
-  root 'unauth_sessions#show'
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

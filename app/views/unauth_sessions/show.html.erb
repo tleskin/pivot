@@ -1,11 +1,4 @@
 
 
-<div class="header">
-  <% if flash[:notice] %>
-  <img src= "http://fc02.deviantart.net/fs71/i/2012/122/2/6/pokemon_logo_by_richieisnela-d4ya9xp.png" width= "100%" class="banner">
-<% else %>
-<img src= "http://fc02.deviantart.net/fs71/i/2012/122/2/6/pokemon_logo_by_richieisnela-d4ya9xp.png" width= "100%" class="banner">
-</div>
-<% end %>
 
 <%= render partial: "/partials/items", locals: { items: @items }%>
