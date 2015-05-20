@@ -1,21 +1,16 @@
 class Business < ActiveRecord::Base
-  belongs_to :user
   belongs_to :region
-  # has_many :investments
+  has_many :investments
+  has_many :business_categories
+  has_many :categories, through: :business_categories
   
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :funding_needed, presence: true, numericality: { greater_than: 0 }
 
-  # has_many  :reviews
-  # has_many  :purchases
-  # has_many  :items_categories
-  # has_many  :categories, through: :items_categories
-  # has_many  :orders_items
-  # has_many  :orders, through: :purchases
-  # validates :title, presence: true, uniqueness: true
-  # validates :description, presence: true
-  # validates :price, presence: true, numericality: { greater_than: 0 }
-  # validates :image, presence: true
-  # validates :retired, inclusion: { in: [true, false] }
-  # validates_uniqueness_of :title
+  has_attached_file :image, default_url: "default_business_image.jpg"
+  validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/png"]
+
 
   # def self.active_items
   #   Item.where(retired: false)
