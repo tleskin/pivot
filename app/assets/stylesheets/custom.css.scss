@@ -41,11 +41,15 @@ table {
 	background-clip: padding-box;
   border-radius:5px;
 }
-.info-box{
-	z-index: 1;
+.info-box {
 	display:none;
+	clear:both;
 }
-.top_box{
+
+.region {
+}
+
+.top_box {
   padding:20px;
 }
 .bottom_box{

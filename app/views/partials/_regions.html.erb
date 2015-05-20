@@ -1,8 +1,13 @@
+
 <% @regions.each do |region| %>
-<%= image_tag(region.image) %><br>
-<div class="info-box">
-  <%= region.description %>
-  <%= button_to "Learn More", region_businesses_path(region) %>
+<div class="region">
+  <%= image_tag(region.image) %><br>
+  <div class="region-name">
+    <%= region.name %><br>
+  </div>
+  <div class="info-box">
+    <%= region.description %>
+    <%= button_to "Learn More", region_businesses_path(region) %>
+  </div>
 </div>
-<%= region.name %><br>
 <% end %>
