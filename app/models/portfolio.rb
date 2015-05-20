@@ -1,6 +1,7 @@
-class Cart
+class Portfolio
 
   attr_reader :contents
+
   def initialize(initial_contents)
     @contents =  initial_contents || Hash.new()
   end

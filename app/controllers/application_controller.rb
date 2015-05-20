@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user, :cart
   protect_from_forgery with: :exception
-  before_action :load_cart
+  before_action :load_portfolio
 
   def admin?
     @current_user && @current_user.admin?
@@ -15,8 +15,8 @@ class ApplicationController < ActionController::Base
     current_user && current_user.admin?
   end
 
-  def load_cart
-    @cart ||= Cart.new(session[:cart])
+  def load_portfolio
+    @portfolio ||= Portfolio.new(session[:portfolio])
   end
 
   def cart
