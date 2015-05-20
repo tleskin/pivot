@@ -10,10 +10,10 @@ class User < ActiveRecord::Base
   
   has_secure_password
 
-  enum role: ['default', 'business-admin', 'platform-admin']
+  enum role: ['default', 'regional-admin', 'platform-admin']
 
-  def business_admin?
-    role == 'business-admin'
+  def regional_admin?
+    role == 'regional-admin'
   end
 
   def platform_admin?

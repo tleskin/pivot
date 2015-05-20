@@ -25,6 +25,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'pry'
   gem 'byebug'
   gem 'simplecov', require: false
   gem 'capybara'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520223457) do
+ActiveRecord::Schema.define(version: 20150520231347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,40 +52,6 @@ ActiveRecord::Schema.define(version: 20150520223457) do
   add_index "investments", ["business_id"], name: "index_investments_on_business_id", using: :btree
   add_index "investments", ["user_id"], name: "index_investments_on_user_id", using: :btree
 
-  create_table "items", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.integer  "price"
-    t.string   "image",       default: "https://browshot.com/static/images/not-found.png"
-    t.boolean  "retired",     default: false
-    t.datetime "created_at",                                                               null: false
-    t.datetime "updated_at",                                                               null: false
-  end
-
-  create_table "items_categories", force: :cascade do |t|
-    t.integer "item_id"
-    t.integer "category_id"
-  end
-
-  add_index "items_categories", ["category_id"], name: "index_items_categories_on_category_id", using: :btree
-  add_index "items_categories", ["item_id"], name: "index_items_categories_on_item_id", using: :btree
-
-  create_table "orders", force: :cascade do |t|
-    t.string   "status"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "purchases", force: :cascade do |t|
-    t.integer "order_id"
-    t.integer "item_id"
-    t.integer "quantity"
-  end
-
-  add_index "purchases", ["item_id"], name: "index_purchases_on_item_id", using: :btree
-  add_index "purchases", ["order_id"], name: "index_purchases_on_order_id", using: :btree
-
   create_table "regions", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -99,14 +65,6 @@ ActiveRecord::Schema.define(version: 20150520223457) do
   end
 
   add_index "regions", ["user_id"], name: "index_regions_on_user_id", using: :btree
-
-  create_table "reviews", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "item_id"
-    t.string  "review"
-    t.integer "score"
-    t.string  "title"
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -124,9 +82,5 @@ ActiveRecord::Schema.define(version: 20150520223457) do
   add_foreign_key "businesses", "regions"
   add_foreign_key "investments", "businesses"
   add_foreign_key "investments", "users"
-  add_foreign_key "items_categories", "categories"
-  add_foreign_key "items_categories", "items"
-  add_foreign_key "purchases", "items"
-  add_foreign_key "purchases", "orders"
   add_foreign_key "regions", "users"
 end
