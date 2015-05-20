@@ -40,6 +40,13 @@ table {
 	background-clip: padding-box;
   border-radius:5px;
 }
+.info-box {
+	display:none;
+	clear:both;
+}
+
+.region {
+}
 
 .regions {
 	display: block;
@@ -54,7 +61,7 @@ table {
 	width: 170px;
 }
 
-.top_box{
+.top_box {
   padding:20px;
 }
 .bottom_box{
