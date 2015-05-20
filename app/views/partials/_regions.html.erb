@@ -1,0 +1,8 @@
+<% @regions.each do |region| %>
+<%= image_tag(region.image) %><br>
+<div class="info-box">
+  <%= region.description %>
+  <%= button_to "Learn More", region_businesses_path(region) %>
+</div>
+<%= region.name %><br>
+<% end %>
