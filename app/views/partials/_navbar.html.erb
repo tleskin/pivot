@@ -25,7 +25,7 @@
         <% if current_user.nil? %>
           <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
         <% else %>
-          <li><%= button_to "Logout", logout_path, method: "delete", class: 'logout'%><li>
+          <li><%= link_to "Logout", logout_path, method: "delete", class: 'logout'%><li>
         <% end %>
         <li><%= link_to "Home", root_path , class: "navbutton"%><li>
         <li><%= link_to "My Account", user_path(current_user), class: "navbutton" if current_user %><li>
@@ -37,5 +37,3 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-
