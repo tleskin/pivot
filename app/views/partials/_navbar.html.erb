@@ -24,6 +24,7 @@
               <ul class="dropdown-menu" role="menu">
         <% if current_user.nil? %>
           <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+          <li><%= link_to "Create Account", new_user_path, class: "navbutton" %><li>
         <% else %>
         <li><%= link_to "Logout", logout_path, method: "delete"%><li>
         <li><%= link_to "My Account", user_path(current_user), class: "navbutton" if current_user %><li>

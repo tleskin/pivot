@@ -1,5 +1,14 @@
-
-<% @regions.each do |region| %>
-  <%= link_to region.name, region_businesses_path(region) %><br />
-  <%= region.description %><br /><br />
-<% end %>
+<h1>Regions</h1>
+<div class="container business-info">
+  <div class="row">
+    <% @regions.each do |region| %>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="item">
+          <%= image_tag(region.image_file_name) %><br>
+          <%= link_to region.name, region_businesses_path(region) %><br>
+          <%= region.description %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

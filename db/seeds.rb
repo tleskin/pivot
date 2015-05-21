@@ -1,5 +1,5 @@
 class Seed
- 
+
   def self.start
     new.generate
   end
@@ -16,7 +16,7 @@ class Seed
     user_id = 2
     20.times do
       name = Faker::Company.name
-      Region.create!(name: name, description: Faker::Lorem.sentence, image: File.open('app/assets/images/default_region_image.jpg'))    
+      Region.create!(name: name, description: Faker::Lorem.sentence, image: File.open('app/assets/images/default_region_image.jpg'))
       Region.last.user_id = user_id
       user_id += 1
     end
@@ -38,7 +38,7 @@ class Seed
                    last_name:  Faker::Name.last_name,
                    email:      email,
                    password:   "password",
-                   role:       1 
+                   role:       1
                   )
     end
     puts "20 regional managers created (including Sam)."
@@ -50,7 +50,7 @@ class Seed
       User.create!(first_name: Faker::Name.first_name,
                    last_name:  Faker::Name.last_name,
                    email:      email,
-                   password:   "password" 
+                   password:   "password"
                   )
     end
     puts "100 default users created (including Josh)."
@@ -94,8 +94,8 @@ class Seed
 
   def create_businesses
     category = 1
-    10.times do 
-      50.times do 
+    10.times do
+      50.times do
         Category.find(category).businesses << create_a_business
       end
       category += 1
@@ -105,11 +105,15 @@ class Seed
 
   def create_a_business
     funding = Random.rand(10000..200000)
-    Business.create(name: Faker::Company.name, 
+    Business.create(name: Faker::Company.name,
                     description: Faker::Lorem.sentence,
                     region_id: Region.all.sample.id,
+<<<<<<< HEAD
+                    funding_needed: funding  )
+=======
                     funding_needed: funding,
                     image: File.open('app/assets/images/default_business_image.jpg') )
+>>>>>>> master
   end
 
   def create_investments
