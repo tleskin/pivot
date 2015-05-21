@@ -1,0 +1,5 @@
+<h1>Investments</h1>
+<% @investments.each do |investment| %>
+  <p>Business: <%= investment.business_name %> </p>
+  <p>$<%= investment.amount %> </p>
+<% end %>
