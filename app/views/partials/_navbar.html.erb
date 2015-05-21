@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="logo" href="#"><%= image_tag("lendio-small.png")%></a>
+      <a class="logo" href="/"><%= image_tag("lendio-small.png")%></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -25,12 +25,13 @@
         <% if current_user.nil? %>
           <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
         <% else %>
-          <li><%= link_to "Logout", logout_path, method: "delete", class: 'logout'%><li>
-        <% end %>
-        <li><%= link_to "Home", root_path , class: "navbutton"%><li>
+        <li><%= link_to "Logout", logout_path, method: "delete"%><li>
+        <% if !current_user.platform_admin? && !current_user.regional_admin? %>
+          <li><%= link_to "Investments", investments_path %> <li>
+          <% end  %>
         <li><%= link_to "My Account", user_path(current_user), class: "navbutton" if current_user %><li>
         <li><%= link_to "Categories", categories_path, class: "navbutton" %><li>
-        <li><%= link_to "My Portfolio", portfolio_path(@portfolio), class: "navbutton", id: "myportfolio" %><li>
+        <% end %>
         </li>
 
       </ul>
