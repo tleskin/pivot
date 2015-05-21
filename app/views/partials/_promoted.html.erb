@@ -2,8 +2,10 @@
   <div class="row">
     <% @businesses.each do |business| %>
       <div class=".col-lg-3 .col-md-4 .col-sm-6">
-        <%= image_tag(business.image) %><br>
-        <%= business.name %><br>
+        <div class="item">
+          <%= image_tag(business.image) %><br>
+          <%= business.name %><br>
+        </div>
       </div>
     <% end %>
   </div>
