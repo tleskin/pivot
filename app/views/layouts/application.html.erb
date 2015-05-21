@@ -14,8 +14,6 @@
   <body>
     <%= render :partial => 'partials/navbar' %>
 
-
-
     <div class="flash">
     <% if current_user && current_user.regional_admin? %>
       <%= "Link to REGIONAL MANAGER STUFF"  %>
@@ -38,6 +36,6 @@
       <p>About Us</p>
     </div>
   </div>
-
+  <%= render :partial => 'partials/login_modal' %>
   </body>
 </html>
