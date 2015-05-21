@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :businesses, only: [:index, :show]
   end
 
+  resources :regions,     only: [:index, :show]
   resources :prospects,   only: [:index, :show, :update, :create]
   resources :portfolio,   only: [:show]
   resources :categories,  only: [:index, :show]

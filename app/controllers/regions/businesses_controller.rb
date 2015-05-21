@@ -1,8 +1,8 @@
 class Regions::BusinessesController < Regions::BaseController
 
   def index
-    region = Region.find(params[:region])
-    @businesses = Business.where(region_id: region.id)
+    @region = Region.find(params[:region])
+    @businesses = Business.where(region_id: @region.id)
   end
 
   def show
