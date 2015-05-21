@@ -4,12 +4,12 @@ RSpec.describe 'user' do
   it 'can logout' do
     create(:user)
 
-    visit login_path
-    fill_in "session[username]", with: "sjones"
+    visit root_path
+    click_link "Login"
+    fill_in "session[email]", with: "user@example.com"
     fill_in "session[password]", with: "password"
     click_button "Login"
-    visit root_path
-    click_button "Logout"
+    click_link "Logout"
     expect(page).to have_content("Successfully logged out")
   end
 end
