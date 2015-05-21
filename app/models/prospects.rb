@@ -14,7 +14,9 @@ class Prospects
   end
 
   def adjust(prospect_data)
-    @contents[prospect_data[:id]]  = 0 if prospect_data[:change] == 'remove'
+    @contents[prospect_data[:id]]   = 0   if prospect_data[:change] == 'remove'
+    @contents[prospect_data[:id]]  += 100 if prospect_data[:change] == 'add'
+    @contents[prospect_data[:id]]  -= 100 if prospect_data[:change] == 'subtract'
     sanitize
   end
 
@@ -34,7 +36,7 @@ class Prospects
   private
 
   def sanitize
-    @contents.reject! { |business_id, amount| amount == 0 }
+    @contents.reject! { |business_id, amount| amount <= 0 }
   end
 
 end
