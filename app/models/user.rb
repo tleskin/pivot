@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, email: true, uniqueness: true
   validates :password, presence: true
   validates_length_of :username, :maximum=>32, :minimum=>2
-  
+
   has_secure_password
 
   enum role: ['default', 'regional-admin', 'platform-admin']
@@ -18,6 +18,12 @@ class User < ActiveRecord::Base
 
   def platform_admin?
     role == 'platform-admin'
+  end
+
+  def investments_detail
+    investments.map do |investment|
+      investment.details
+    end
   end
 
 end
