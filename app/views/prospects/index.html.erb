@@ -10,14 +10,24 @@
         <tr>
           <td><strong>Business</strong></td>
           <td><strong>Subtotal</strong></td>
-          <td><strong>Remove</strong></td>
+          <td><strong>Increase</strong></td>
+          <td><strong>Decrease</strong></td>
+          <td><strong>Remove Prospect</strong></td>
         </tr>
         <% @prospects_info.each do |prospect| %>
         <tr>  
           <div class='prospect'>
             <td><%= link_to "#{prospect.business.name}", region_business_path(region: prospect.business.region_id, id: prospect.business.id) %></td>
-            <td>$<%= text_field_tag(:amount, prospect.amount/100) %></td>
-            <td><%= button_to "remove", prospect_path(id: prospect.business.id, change: 'remove'), class: 'btn btn-danger', method: :put %></td>
+            <td><%= number_to_currency(prospect.amount/100) %></td>
+            <td>
+              <%= button_to "+", prospect_path(id: prospect.business.id, change: 'add'), class: 'btn btn-danger', method: :put %>
+            </td>
+            <td>
+              <%= button_to "-", prospect_path(id: prospect.business.id, change: 'subtract'), class: 'btn btn-danger', method: :put %>
+            </td>
+            <td>
+              <%= button_to "remove", prospect_path(id: prospect.business.id, change: 'remove'), class: 'btn btn-danger', method: :put %>
+            </td>
           </div>
         </tr>
         <% end %>

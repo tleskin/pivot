@@ -13,20 +13,15 @@ class InvestmentsController < ApplicationController
   end
 
   def create
-    binding.pry
-  #   if current_user.nil?
-  #     redirect_to login_path
-  #   else
-  #     OrderCreator.generate(@cart, current_user)
-  #     session[:cart] = nil
-  #     redirect_to root_path
-  #   end
-  # end
+    Investment.generate(@prospects, current_user.id)
+    session[:prospects] = {}
+    redirect_to root_path
+  end
   
-  # def update
-  #   @order = Order.find(params[:id])
-  #   @order.update(order_params)
-  #   redirect_to admin_orders_path
+  def update
+    @order = Order.find(params[:id])
+    @order.update(order_params)
+    redirect_to admin_orders_path
   end
 
   private
