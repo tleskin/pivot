@@ -112,8 +112,8 @@ class Seed
   end
 
   def create_investments
-    user_id = 22
-    99.times do
+    user_id = (User.last.id - 100)
+    101.times do
       create_user_investments(user_id)
       user_id += 1
     end
@@ -121,8 +121,8 @@ class Seed
   end
 
   def create_user_investments(user_id)
-    investment = Random.rand(100..10000)
     10.times do
+      investment = Random.rand(100..10000)
       business_id = Business.all.sample.id
       Investment.create!(user_id: user_id, business_id: business_id, amount: investment)
     end
