@@ -227,38 +227,6 @@ body {
 	left:0;
 }
 
-
-/* Custom Button Styles */
-
-.btn-xlarge {
-  padding: 18px 28px;
-  font-size: 50px;
-  line-height: normal;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
-}
-
-.btn-ghost {
-  color: white !important;
-  background-color: rgba(0,0,0,0) !important;
-  font-weight: bold;
-  border-radius: 0 !important;
-}
-
-.btn-ghost:hover,
-.btn-ghost:focus,
-.btn-ghost:active {
-  color: white !important;
-  text-decoration: none;
-}
-
-.btn-light {
-  border-radius: 0;
-  color: white;
-  background-color: rgba(0,0,0,0);
-}
-
 /* Login modal styling */
 
 .modal {
