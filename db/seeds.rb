@@ -108,12 +108,8 @@ class Seed
     Business.create(name: Faker::Company.name,
                     description: Faker::Lorem.sentence,
                     region_id: Region.all.sample.id,
-<<<<<<< HEAD
-                    funding_needed: funding  )
-=======
                     funding_needed: funding,
                     image: File.open('app/assets/images/default_business_image.jpg') )
->>>>>>> master
   end
 
   def create_investments
