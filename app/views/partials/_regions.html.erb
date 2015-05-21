@@ -1,0 +1,5 @@
+
+<% @regions.each do |region| %>
+  <%= link_to region.name, region_businesses_path(region) %><br />
+  <%= region.description %><br /><br />
+<% end %>
