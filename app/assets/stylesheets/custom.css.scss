@@ -3,6 +3,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
   // font-family: Raleway, sans-serif;
 	line-height: 1;
@@ -29,7 +30,7 @@ table {
 }
 
 .item{
-  background-color: #fff;
+  background-color: none;
   color: black;
 	font-family: Raleway, sans-serif;
   text-align: center;
@@ -40,9 +41,8 @@ table {
   border-radius:5px;
 }
 
-.col-lg-3, .col-md-4, .col-sm-6 {
-padding-left: 0px;
-padding-right: 0px;
+.col-lg-6, .col-md-6, .col-sm-6 {
+padding: 5px;
 }
 
 .info-box {
@@ -56,11 +56,7 @@ padding-right: 0px;
 }
 
 .business-info img {
-	width: 300px;
-}
-
-.item img{
-  width: 170px;
+	width: 170px;
 }
 
 .top_box {
