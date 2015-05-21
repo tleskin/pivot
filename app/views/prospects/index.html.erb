@@ -1,0 +1,27 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-6 col-md-offset-3 text-center'>
+      <h3>Prospects</h3>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-6 col-md-offset-3 text-center'>
+      <table class='table'>
+        <tr>
+          <td><strong>Business</strong></td>
+          <td><strong>Subtotal</strong></td>
+          <td><strong>Remove</strong></td>
+        </tr>
+        <% @prospects_info.each do |prospect| %>
+        <tr>  
+          <div class='prospect'>
+            <td><%= link_to "#{prospect.business.name}", region_business_path(region: prospect.business.region_id, id: prospect.business.id) %></td>
+            <td><%= number_to_currency(prospect.amount/100) %></td>
+            <td><%= button_to "remove", prospect_path(id: prospect.business.id, change: 'remove'), class: 'btn btn-danger', method: :put %></td>
+          </div>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

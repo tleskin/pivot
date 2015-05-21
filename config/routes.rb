@@ -4,8 +4,11 @@ Rails.application.routes.draw do
     resources :businesses, only: [:index, :show]
   end
 
-  resources :portfolio, only: [:show]
-  resources :categories, only: [:index, :show]
+  resources :prospects,   only: [:index, :show, :update, :create]
+  resources :portfolio,   only: [:show]
+  resources :categories,  only: [:index, :show]
+
+  get '/tester', to: 'prospects#tester'
 
   get        '/home', to: 'static_pages#home'
   get       '/about', to: 'static_pages#about'
