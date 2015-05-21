@@ -29,5 +29,14 @@ $(document).ready(function() {
     //     // s = minus + s;
     //     return this.value = i;
     // });
-
+    $(".update-box").focusout(function(){
+      console.log($(this).val());
+      $.ajax({
+        method: "POST",
+        url: "/prospects",
+        data: {prospect:{ business_id: $(".element").data("business-id"), amount: $(this).val() }}
+      })
+      .done(function( msg ) {
+      });
+    });
 })
