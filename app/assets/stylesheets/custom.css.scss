@@ -3,6 +3,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
   // font-family: Raleway, sans-serif;
 	line-height: 1;
@@ -29,7 +30,7 @@ table {
 }
 
 .item{
-  background-color: #fff;
+  background-color: none;
   color: black;
 	font-family: Raleway, sans-serif;
   text-align: center;
@@ -40,9 +41,8 @@ table {
   border-radius:5px;
 }
 
-.col-lg-3, .col-md-4, .col-sm-6 {
-padding-left: 0px;
-padding-right: 0px;
+.col-lg-6, .col-md-6, .col-sm-6 {
+padding: 5px;
 }
 
 .info-box {
@@ -50,22 +50,19 @@ padding-right: 0px;
 	clear:both;
 }
 
-.regions {
+.business-info {
 	display: block;
 	align: center;
 }
 
-.regions img {
-	width: 300px;
-}
-
-.item img {
+.business-info img {
 	width: 170px;
 }
 
 .top_box {
   padding:20px;
 }
+
 .bottom_box{
   background-color:#ccc;
   padding:10px;
@@ -142,6 +139,12 @@ padding-right: 0px;
 	.item{
 		width: 100%;
 	}
+}
+
+@media (min-width: 768px) {
+  ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+  }
 }
 
 header div h2 {
@@ -224,12 +227,47 @@ body {
 	left:0;
 }
 
+/* Login modal styling */
+
+.modal {
+  text-align: center;
+}
+
+.modal:before {
+  display: inline-block;
+  vertical-align: middle;
+  content: " ";
+  height: 100%;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  width: 300px;
+}
+
+.login-text {
+  margin: 10px;
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
+}
+
+.modal-footer {
+  text-align: center;
+}
+
 
 /* Custom Button Styles */
 
+$primary-color: #fff;
+$hover-color: #fed136;
+$muted: #777;
+
 .btn-xlarge {
   padding: 18px 28px;
-  font-size: 50px;
+  font-size: 22px;
   line-height: normal;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -239,6 +277,7 @@ body {
 .btn-ghost {
   color: white !important;
   background-color: rgba(0,0,0,0) !important;
+  border: 2px solid white !important;
   font-weight: bold;
   border-radius: 0 !important;
 }
@@ -247,11 +286,18 @@ body {
 .btn-ghost:focus,
 .btn-ghost:active {
   color: white !important;
+  border: 2px solid white !important;
   text-decoration: none;
 }
 
 .btn-light {
   border-radius: 0;
-  color: white;
+  color: $muted;
   background-color: rgba(0,0,0,0);
+}
+
+/* Prospects styling */
+
+.prospect img {
+  width: 100px;
 }

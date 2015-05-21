@@ -1,0 +1,14 @@
+<div class="container business-info">
+  <div class="row">
+    <% @businesses.each do |business| %>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="item">
+          <%= image_tag(business.image) %><br>
+          <%= business.name %><br>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

@@ -4,8 +4,11 @@ Rails.application.routes.draw do
     resources :businesses, only: [:index, :show]
   end
 
-  resources :portfolio, only: [:show]
-  resources :categories, only: [:index, :show]
+  resources :prospects,   only: [:index, :show, :update, :create]
+  resources :portfolio,   only: [:show]
+  resources :categories,  only: [:index, :show]
+
+  get '/tester', to: 'prospects#tester'
 
   get        '/home', to: 'static_pages#home'
   get       '/about', to: 'static_pages#about'
@@ -14,7 +17,7 @@ Rails.application.routes.draw do
   get       '/login', to: 'sessions#new'
   post      '/login', to: 'sessions#create'
   delete   '/logout', to: 'sessions#destroy'
-  
+
   resources :users
 
   root 'static_pages#home'
@@ -41,7 +44,7 @@ Rails.application.routes.draw do
   # resources :reviews
   # resources :categories, only:[:index, :show]
   # resources :items, only:[:show]
-  # resources :orders, only:[:show, :index, :new, :create, :update]
+  resources :investments, only:[:show, :index, :new, :create, :update]
   # resources :purchases, only:[:create]
   # resources :carts, only:[:show]
 

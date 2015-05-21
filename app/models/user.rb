@@ -1,22 +1,33 @@
 class User < ActiveRecord::Base
-  before_save :create_username
-  has_many  :orders
+  has_one     :region
+  has_many    :investments
+
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :username, presence: true, uniqueness: true
-  validates :email, presence: true, email: true
+  validates :email, presence: true, email: true, uniqueness: true
   validates :password, presence: true
   validates_length_of :username, :maximum=>32, :minimum=>2
-  has_secure_password
-  has_many  :reviews
 
-  def admin?
-    role == 1
+  has_secure_password
+
+  enum role: ['default', 'regional-admin', 'platform-admin']
+
+  def to_param
+    email
   end
 
-  def create_username
-    if self.username.nil? || self.username.blank?
-      self.username = self.email
+  def regional_admin?
+    role == 'regional-admin'
+  end
+
+  def platform_admin?
+    role == 'platform-admin'
+  end
+
+  def investments_detail
+    investments.map do |investment|
+      investment.details
     end
   end
+
 end

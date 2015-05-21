@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
-    @regions = Region.all
+    @businesses = Business.promoted
   end
 
   def about
