@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
 
   enum role: ['default', 'regional-admin', 'platform-admin']
 
+  def to_param
+    email
+  end
+
   def regional_admin?
     role == 'regional-admin'
   end
