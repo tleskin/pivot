@@ -9,8 +9,9 @@ RSpec.describe 'user' do
                   email: "s@jones.com",
                   password: "password",
                   password_confirmation: "password")
-      visit login_path
-      fill_in "session[username]", with: "sjones"
+      visit root_path
+      click_link "Login"
+      fill_in "session[email]", with: "s@jones.com"
       fill_in "session[password]", with: "password"
       click_button "Login"
       expect(page).to have_content("Steve")
