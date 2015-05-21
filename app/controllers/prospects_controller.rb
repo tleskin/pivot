@@ -16,8 +16,9 @@ class ProspectsController < ApplicationController
   def create
     @prospects.add(prospect_params)
     session[:prospects] = @prospects.contents
-    redirect_to tester_path
+    redirect_to root_path
   end
+
 
   def destroy
   end

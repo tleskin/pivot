@@ -8,12 +8,9 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       redirect_to user_path(@user)
-    elsif @user && @user.authenticate(params[:session][:password])
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
     else
-      flash[:errors] = "Invalid login"
-      render :new
+      flash.now[:errors] = "Invalid login"
+      redirect_to root_path
     end
   end
 
