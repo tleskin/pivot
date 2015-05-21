@@ -26,9 +26,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by(email: params[:user][:email])
     if @user.update(user_params)
-      flash[:notice] = ""
       redirect_to user_path(@user)
     else
       flash[:notice] = "Invalid fields"
