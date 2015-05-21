@@ -1,0 +1,6 @@
+<% @businesses.each do |business|  %>
+<%= business.name %><br />
+<%= business.description %><br />
+<%= business.funding_needed %><br />
+<%= link_to "Show", region_business_path(id: business.id) %>
+<% end %>
