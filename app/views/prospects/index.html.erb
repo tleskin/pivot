@@ -25,3 +25,14 @@
     </div>
   </div>
 </div>
+<% if logged_in? && prospects? %>
+  <%= button_to "Confirm Investment", investments_path, class: 'btn btn-success' %>
+<% elsif logged_in? %>
+  <p>
+    <em>You have no current prospects.</em>
+  </p>
+<% else %>
+  <p>
+    <em>Please log in to invest.</em>
+  </p>
+<% end %>

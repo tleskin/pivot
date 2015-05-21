@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :cart
+  helper_method :current_user, :logged_in?, :prospects?
   protect_from_forgery with: :exception
   before_action :load_portfolio
   before_action :load_prospects
@@ -22,6 +22,14 @@ class ApplicationController < ActionController::Base
 
   def load_prospects
     @prospects ||= Prospects.new(session[:prospects])
+  end
+
+  def logged_in?
+    session[:user_id]
+  end
+
+  def prospects?
+    @prospects.contents != {}
   end
 
   def prospects
