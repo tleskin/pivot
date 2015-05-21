@@ -12,7 +12,8 @@ class InvestmentsController < ApplicationController
     @investment = Investment.find_by(params[:id])
   end
 
-  # def create
+  def create
+    binding.pry
   #   if current_user.nil?
   #     redirect_to login_path
   #   else
@@ -21,12 +22,12 @@ class InvestmentsController < ApplicationController
   #     redirect_to root_path
   #   end
   # end
-  #
+  
   # def update
   #   @order = Order.find(params[:id])
   #   @order.update(order_params)
   #   redirect_to admin_orders_path
-  # end
+  end
 
   private
 
