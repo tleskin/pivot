@@ -1,42 +1,69 @@
 $(document).ready(function() {
 
-    $('.currency').focusout(function() {
-        var i = parseFloat(this.value/100);
-        // if(isNaN(i)) { i = 0.00; }
-        // var minus = '';
-        // if(i < 0) { minus = '-'; }
-        // i = Math.abs(i);
-        // i = parseInt((i + .005) * 100);
-        // i = i / 100;
-        // s = new String(i);
-        // if(s.indexOf('.') < 0) { s += '.00'; }
-        // if(s.indexOf('.') == (s.length - 2)) { s += '0'; }
-        // s = minus + s;
-        return this.value = i;
-    });
-
-    // $('.currency').focus(function() {
-    //     var i = parseFloat(this.value/100);
-    //     // if(isNaN(i)) { i = 0.00; }
-    //     // var minus = '';
-    //     // if(i < 0) { minus = '-'; }
-    //     // i = Math.abs(i);
-    //     // i = parseInt((i + .005) * 100);
-    //     // i = i / 100;
-    //     // s = new String(i);
-    //     // if(s.indexOf('.') < 0) { s += '.00'; }
-    //     // if(s.indexOf('.') == (s.length - 2)) { s += '0'; }
-    //     // s = minus + s;
-    //     return this.value = i;
+    // $(".update-box").focusout(function(){
+    //   // console.log($(this).val());
+    //   var amount = $(this).val()
+    //   $.ajax({
+    //     method: "POST",
+    //     url: "/prospects",
+    //     data: {prospect:{ business_id: $(".element").data("business-id"), amount: amount }}
+    //   })
+    //   .done(function( msg ) {
+    //     return $(".update-box")    // $(".update-box").focusout(function(){
+    // //   // console.log($(this).val());
+    // //   var amount = $(this).val()
+    // //   $.ajax({
+    // //     method: "POST",
+    // //     url: "/prospects",
+    // //     data: {prospect:{ business_id: $(".element").data("business-id"), amount: amount }}
+    // //   })
+    // //   .done(function( msg ) {
+    // //     return $(".update-box").val(formatCurrency(amount))
+    // //   });
+    // // });.val(formatCurrency(amount))
+    //   });
     // });
-    $(".update-box").focusout(function(){
-      console.log($(this).val());
-      $.ajax({
-        method: "POST",
-        url: "/prospects",
-        data: {prospect:{ business_id: $(".element").data("business-id"), amount: $(this).val() }}
-      })
-      .done(function( msg ) {
-      });
-    });
+
+    var formatCurrency = function(amount){
+        var dec = "$" + Number(amount).toFixed(2);
+        return dec
+    }
+
+    var timeoutId;
+
+    var invalidKeyCodes = {
+      37: "left arrow",
+      38: "up arrow",
+      39: "right arrow",
+      40: "down arrow"
+    }
+
+    $(".update-box").keyup(function(event){
+        var input = this;
+
+        if (!invalidKeyCodes[event.keyCode]) {
+          clearTimeout(timeoutId)
+          timeoutId = setTimeout(function() {
+            var amount = $(input).val()
+            var clean  = cleanCurrency(amount)
+            var formatted = formatCurrency(clean)
+            // console.log($(this))
+            // var amount = amount.replace("$","")
+            debugger
+            // console.log(amount)
+            $(input).val(formatted)
+          }, 2000)  
+        }
+    })
+
+
+
+    var cleanCurrency = function(amount){
+      debugger
+      var cleanAmount = amount.match(/\d+(\.\d{2})?/g)
+      return cleanAmount.join('')
+    }
+
+
+
 })

@@ -19,10 +19,6 @@ class ProspectsController < ApplicationController
     redirect_to root_path
   end
 
-
-  def destroy
-  end
-
   private
 
   def prospect_params
