@@ -1,4 +1,5 @@
 class ProspectsController < ApplicationController
+  before_action :store_location
 
   def index
     @prospects_info = @prospects.details

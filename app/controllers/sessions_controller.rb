@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-
+  # before_action :store_location, only: [:create]
+  
   def new
   end
 
@@ -7,10 +8,10 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_back_or user_path(@user)
     else
       flash.now[:errors] = "Invalid login"
-      redirect_to root_path
+      redirect_back_or user
     end
   end
 
