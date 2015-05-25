@@ -1,4 +1,5 @@
 class ProspectsController < ApplicationController
+  before_action :store_location
 
   def index
     @prospects_info = @prospects.details
@@ -17,10 +18,6 @@ class ProspectsController < ApplicationController
     @prospects.add(prospect_params)
     session[:prospects] = @prospects.contents
     redirect_to root_path
-  end
-
-
-  def destroy
   end
 
   private

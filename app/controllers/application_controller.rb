@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :load_portfolio
   before_action :load_prospects
 
+  include SessionsHelper
+
   def platform_admin?
     @current_user && current_user.platform_admin?
   end

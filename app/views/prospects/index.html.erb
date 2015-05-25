@@ -18,7 +18,7 @@
         <tr>
           <div class='prospect'>
             <td><%= link_to "#{prospect.business.name}", region_business_path(region: prospect.business.region_id, id: prospect.business.id) %></td>
-            <td><%= number_to_currency(prospect.amount/100) %></td>
+            <td class='prospect-amount'><%= number_to_currency(prospect.amount/100) %></td>
             <td>
               <%= button_to "+", prospect_path(id: prospect.business.id, change: 'add'), class: 'btn btn-danger', method: :put %>
             </td>
@@ -46,6 +46,6 @@
   </p>
 <% else %>
   <p>
-    <em>Please log in to invest.</em>
+    <a href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-success">Login to Invest</a>
   </p>
 <% end %>
