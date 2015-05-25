@@ -19,6 +19,9 @@ body {
 }
 
 
+.change-button:hover{
+		background-color: blue;
+}
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -287,7 +290,7 @@ $muted: #777;
 
 .btn-ghost {
   color: white !important;
-  background-color: rgba(0,0,0,0) !important;
+  background-color: rgba(0,0,0,0);
   border: 2px solid white !important;
   font-weight: bold;
   border-radius: 0 !important;
@@ -298,6 +301,7 @@ $muted: #777;
 .btn-ghost:active {
   color: white !important;
   border: 2px solid white !important;
+	background-color: blue;
   text-decoration: none;
 }
 
