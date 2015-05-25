@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   end
 
   resources :regions,     only: [:index, :show]
-  resources :prospects,   only: [:index, :show, :update, :create]
   resources :portfolio,   only: [:show]
   resources :categories,  only: [:index, :show]
+  resources :prospects,   only: [:index, :show, :create]
 
-  get '/tester', to: 'prospects#tester'
+  post '/prospects_update', to: 'prospects#update'
 
   get        '/home', to: 'static_pages#home'
   get       '/about', to: 'static_pages#about'
