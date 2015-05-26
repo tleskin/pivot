@@ -8,6 +8,10 @@ class Prospects
     @contents = contents || {}
   end
 
+  def count_them
+    @contents.keys.size
+  end
+
   def add(prospect_data)
     @contents[prospect_data['business_id']] ||= 0
     @contents[prospect_data['business_id']] += prospect_data['amount'].to_i 

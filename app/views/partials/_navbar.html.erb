@@ -12,28 +12,13 @@
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Regions", regions_path %></li>
-
-            </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li>        <li><%= link_to "Prospects", prospects_path, class: "navbutton" %><li></li>
-          <li class="dropdown">
-            <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-        <% if current_user.nil? %>
-          <li><a href="#" data-toggle="modal" data-target="#modal-login">Login</a></li>
-          <li><%= link_to "Create Account", new_user_path, class: "navbutton" %><li>
-        <% else %>
-        <li><%= link_to "Logout", logout_path, method: "delete"%><li>
-        <li><%= link_to "My Account", user_path(current_user), class: "navbutton" if current_user %><li>
-        <% if !current_user.platform_admin? && !current_user.regional_admin? %>
-          <li><%= link_to "My Investments", investments_path %> <li>
-          <% end  %>
-        </li>
-        <% end %>
-      </ul>
+      <% if regional_admin? %>
+        <%= render partial: 'partials/regional_admin_nav' %>
+      <% elsif platform_admin? %>
+        <%= render partial: 'partials/platform_admin_nav' %>
+      <% else %>
+        <%= render partial: 'partials/default_nav' %>
+      <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

@@ -5,20 +5,17 @@ class Seed
   end
 
   def generate
-    create_users
     create_regions
+    create_users
     create_categories
     create_businesses
     create_investments
   end
 
   def create_regions
-    user_id = 2
     20.times do
       name = Faker::Company.name
       Region.create!(name: name, description: Faker::Lorem.sentence, image: File.open('app/assets/images/default_region_image.jpg'))
-      Region.last.user_id = user_id
-      user_id += 1
     end
     puts "20 Regions created."
   end
@@ -32,14 +29,17 @@ class Seed
   end
 
   def create_regional_managers
+    region = 2;
     19.times do
       email = Faker::Internet.email
       User.create!(first_name: Faker::Name.first_name,
                    last_name:  Faker::Name.last_name,
                    email:      email,
                    password:   "password",
-                   role:       1
+                   role:       1,
+                   region_id:  region
                   )
+      region += 1
     end
     puts "20 regional managers created (including Sam)."
   end
@@ -80,7 +80,8 @@ class Seed
                  last_name:  "Houston",
                  email:      "sam@turing.io",
                  password:   "password",
-                 role:       1
+                 role:       1,
+                 region_id:  1
                 )
   end
 

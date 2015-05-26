@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :logged_in?, :prospects?
+  helper_method :current_user, :logged_in?, :prospects?, 
+                :regional_admin?, :platform_admin?, :load_prospects
   protect_from_forgery with: :exception
   before_action :load_portfolio
   before_action :load_prospects

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_one     :region
+  belongs_to  :region
   has_many    :investments
 
   validates :first_name, presence: true
