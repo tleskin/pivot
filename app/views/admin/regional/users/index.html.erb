@@ -1,0 +1,36 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-6 col-md-offset-3 text-center'>
+      <h3>Regional Administrators</h3>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-6 col-md-offset-3 text-center'>
+      <table class='table'>
+        <tr>
+          <td><strong>Name</strong></td>
+          <td><strong>Email</strong></td>
+          <td><strong>Revoke Admin Rights</strong></td>
+        </tr>
+        <% @admins.each do |admin| %>
+        <tr>
+          <div class='prospect'>
+            <td>
+              <p><%= "#{admin.last_name}, #{admin.first_name}" %></p>
+            </td>
+            <td>
+              <p><%= "#{admin.email}" %></p>
+            </td>
+            <td>
+              <%= button_to "revoke", admin_regional_user_path(id: admin.id), class: 'btn btn-danger', method: :delete %>
+            </td>
+          </div>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="add-regional-admin">
+  <%= button_to 'Add New Administrator', new_admin_regional_user_path, class: 'btn btn-danger', method: :get %>  
+</div>

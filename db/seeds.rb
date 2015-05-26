@@ -29,8 +29,9 @@ class Seed
   end
 
   def create_regional_managers
-    region = 2;
-    19.times do
+    region = 1;
+    i = 1
+    57.times do
       email = Faker::Internet.email
       User.create!(first_name: Faker::Name.first_name,
                    last_name:  Faker::Name.last_name,
@@ -39,9 +40,10 @@ class Seed
                    role:       1,
                    region_id:  region
                   )
-      region += 1
+      region += 1 if i%3 == 0
+      i += 1
     end
-    puts "20 regional managers created (including Sam)."
+    puts "58 regional managers created (including Sam)."
   end
 
   def create_default_users
