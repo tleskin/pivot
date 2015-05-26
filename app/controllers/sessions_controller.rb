@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  # before_action :store_location, only: [:create]
-  
+
   def new
   end
 
