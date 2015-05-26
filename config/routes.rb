@@ -4,16 +4,27 @@ Rails.application.routes.draw do
     resources :businesses, only: [:index, :show]
   end
 
+  namespace :admin do
+    namespace :regional do
+      resources :businesses, only: [:index, :create, :update]
+      resources :users, only: [:index, :new, :destroy]
+      post '/new_admin', to: 'users#create'
+    end
+  end
+
   resources :regions,     only: [:index, :show]
-  resources :prospects,   only: [:index, :show, :update, :create]
   resources :portfolio,   only: [:show]
   resources :categories,  only: [:index, :show]
+  resources :prospects,   only: [:index, :show, :create]
+  resources :investments, only: [:show, :index, :new, :create, :update] 
 
-  get '/tester', to: 'prospects#tester'
+  post '/prospects_update', to: 'prospects#update'
 
   get        '/home', to: 'static_pages#home'
   get       '/about', to: 'static_pages#about'
   get     '/contact', to: 'static_pages#contact'
+
+  get '/modal_login', to: 'sessions#modal_login'
 
   get       '/login', to: 'sessions#new'
   post      '/login', to: 'sessions#create'
@@ -45,7 +56,7 @@ Rails.application.routes.draw do
   # resources :reviews
   # resources :categories, only:[:index, :show]
   # resources :items, only:[:show]
-  resources :investments, only:[:show, :index, :new, :create, :update]
+  
   # resources :purchases, only:[:create]
   # resources :carts, only:[:show]
 

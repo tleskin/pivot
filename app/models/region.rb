@@ -1,5 +1,5 @@
 class Region < ActiveRecord::Base
-  belongs_to :user
+  has_many :users
   has_many :businesses
 
   validates :name, :description, presence: true

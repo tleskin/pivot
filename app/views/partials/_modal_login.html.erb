@@ -1,5 +1,5 @@
 <!-- Login Modal -->
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -12,7 +12,8 @@
           <%= f.password_field :password, placeholder: 'password', class: 'login-text' %><br>
       <div class="modal-footer">
           <%= f.submit 'Login', class: 'btn btn-success' %>
-        <% end %>
+        <% end %><br>
+        <%= link_to "No account? Create one now!", new_user_path %>
       </div>
     </div>
   </div>

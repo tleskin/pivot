@@ -15,26 +15,22 @@
     <%= render :partial => 'partials/navbar' %>
 
     <div class="flash">
-    <% if current_user && current_user.regional_admin? %>
-      <%= "Link to REGIONAL MANAGER STUFF"  %>
-    <% elsif current_user && current_user.platform_admin? %>
-      <%= "Link to PLATFORM MANAGER STUFF"  %>
-    <% end %>
-    <% flash.each do |name, msg| %>
-     <%= content_tag :div, msg, :id => "flash_#{name}", class:'error' %><br />
+      <% flash.each do |name, msg| %>
+       <%= content_tag :div, msg, :id => "flash_#{name}", class:'error' %><br />
+      <% end %>
+    </div>
 
-    <% end %>
-
-    <%= yield %>
-  </div>
+    <div>
+      <%= yield %>
+    </div>
 <!-- footer -->
-  <div id="wrapper">
+    <div id="wrapper">
     <div id="footer">
       <h4><strong>Lend.io</strong></h4>
       <p>Denver, CO</p>
       <p>About Us</p>
     </div>
-  </div>
-  <%= render :partial => 'partials/login_modal' %>
+    </div>
+    <%= render :partial => 'partials/modal_login' %>
   </body>
 </html>

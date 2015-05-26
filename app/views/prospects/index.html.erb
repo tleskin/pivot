@@ -9,27 +9,19 @@
       <table class='table'>
         <tr>
           <td><strong>Business</strong></td>
-          <td><strong>Subtotal</strong></td>
-          <td><strong>Increase</strong></td>
-          <td><strong>Decrease</strong></td>
+          <td><strong>Subtotal</strong><br><em>(Enter new value to change)</em></td>
           <td><strong>Remove Prospect</strong></td>
         </tr>
         <% @prospects_info.each do |prospect| %>
         <tr>
           <div class='prospect'>
-            <td><%= link_to "#{prospect.business.name}", region_business_path(region: prospect.business.region_id, id: prospect.business.id) %></td>
-            <td class='prospect-amount'><%= number_to_currency(prospect.amount/100) %></td>
-            <td>
-              <%= button_to "+", prospect_path(id: prospect.business.id, change: 'add'), class: 'btn btn-danger', method: :put %>
-            </td>
-            <td>
-              <%= button_to "-", prospect_path(id: prospect.business.id, change: 'subtract'), class: 'btn btn-danger', method: :put %>
-            </td>
-            <td>
-              <%= button_to "remove", prospect_path(id: prospect.business.id, change: 'remove'), class: 'btn btn-danger', method: :put %>
+            <td><%= link_to "#{prospect.business.name}", region_business_path(region: prospect.business.region_id, id: prospect.business.id) %>
             </td>
             <td class="element" data-business-id= "<%= prospect.business.id  %>" >
-              <%= text_field_tag :data, nil, class: 'update-box' %>
+              <%= text_field_tag :data, nil, value: prospect.amount, class: 'update-box' %>
+            </td>
+            <td>
+              <%= button_to "remove", prospects_update_path(id: prospect.business.id, change: 'remove'), class: 'btn btn-danger', method: :post %>
             </td>
           </div>
         </tr>

@@ -1,0 +1,32 @@
+<ul class="nav navbar-nav">
+  <li><%= link_to "Regions", regions_path %></li>
+</ul>
+
+<ul class="nav navbar-nav navbar-right">
+  <li>
+    <%= link_to "Prospects (#{load_prospects.count_them})", prospects_path, class: "navbutton" %>
+  </li>
+  <li class="dropdown">
+    <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+      <% if current_user.nil? %>
+        <li>
+          <a href="#" data-toggle="modal" data-target="#modal-login">Login</a>
+        </li>
+        <li>
+          <%= link_to "Create Account", new_user_path, class: "navbutton" %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "Logout", logout_path, method: "delete"%>
+        </li>
+        <li>
+          <%= link_to "My Account", user_path(current_user), class: "navbutton" if current_user %>
+        </li>
+        <li>
+          <%= link_to "My Investments", investments_path %> 
+        </li>
+      <% end  %>
+    </ul>
+  </li>
+</ul>
