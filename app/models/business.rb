@@ -3,7 +3,7 @@ class Business < ActiveRecord::Base
   has_many :investments
   has_many :business_categories
   has_many :categories, through: :business_categories
-  
+
   validates :name, presence: true
   validates :description, presence: true
   validates :funding_needed, presence: true, numericality: { greater_than: 0 }
@@ -14,6 +14,7 @@ class Business < ActiveRecord::Base
   def self.promoted
     Business.all.sample(2)
   end
+
   # def self.active_items
   #   Item.where(retired: false)
   # end

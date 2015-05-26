@@ -4,8 +4,9 @@
     <% @regions.each do |region| %>
       <div class="col-lg-6 col-md-6 col-sm-6">
         <div class="item">
-          <%= link_to(image_tag(region.image_file_name), region_businesses_path(region)) %><br>
           <%= link_to region.name, region_businesses_path(region) %><br>
+          <%= link_to(image_tag(region.image_file_name), region_businesses_path(region)) %><br>
+          Number of businesses: <%= business_count(region) %><br>
           <%= region.description %>
         </div>
       </div>
