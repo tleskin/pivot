@@ -1,13 +1,17 @@
 <div class="container business-info">
   <div class="row">
     <% @businesses.each do |business| %>
-      <div class="col-lg-3 col-md-5 col-sm-12">
-        <div class="item">
-          <%= link_to( image_tag(business.image), region_business_path(id: business.id)) %><br>
-          <%= business.name %><br />
-          <%= business.description %><br />
-          <%= business.funding_needed %><br />
-          <%= link_to "View", region_business_path(id: business.id) %><br />
+    <div class="centered col-lg-4 col-md-4 col-sm-4">
+        <div class="business">
+          <p><h4><%= link_to( business.name, region_business_path(id: business.id)) %></h4></p>
+
+          <p><%= link_to( image_tag(business.image), region_business_path(id: business.id)) %></p>
+
+          <p>Funding needed:</p>
+          <p><%= number_to_currency(business.funding_needed / 100) %></p>
+          <p>Funding to date:</p>
+          <p><%= number_to_currency(business.funding_to_date / 100) %></p>
+          <p><%= link_to "Learn More", region_business_path(id: business.id) %></p>
         </div>
       </div>
     <% end %>
