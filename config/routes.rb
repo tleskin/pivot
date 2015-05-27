@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   namespace :regions, as: :region, path: '/:region' do
     resources :businesses, only: [:index, :show]
   end
-
   
   namespace :regional_admin do
-    resources :businesses, only: [:index, :create, :update]
+    resources :region_businesses, only: [:index, :show, :destroy]
     resources :users, only: [:index, :new, :destroy, :create]
     resources :region, only: [:show, :edit, :update]
   end
