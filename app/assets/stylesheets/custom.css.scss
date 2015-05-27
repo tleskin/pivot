@@ -305,9 +305,11 @@ $muted: #777;
 .btn-ghost:hover,
 .btn-ghost:focus,
 .btn-ghost:active {
-  color: white !important;
-  border: 2px solid white !important;
-	background-color: blue;
+  color: black !important;
+  border: 2px solid black !important;
+	background-color: white;
+	opacity: .7;
+
   text-decoration: none;
 }
 
