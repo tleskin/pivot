@@ -4,12 +4,10 @@ Rails.application.routes.draw do
     resources :businesses, only: [:index, :show]
   end
 
-  namespace :admin do
-    namespace :regional do
-      resources :businesses, only: [:index, :create, :update]
-      resources :users, only: [:index, :new, :destroy]
-      post '/new_admin', to: 'users#create'
-    end
+  
+  namespace :regional_admin do
+    resources :businesses, only: [:index, :create, :update]
+    resources :users, only: [:index, :new, :destroy, :create]
   end
 
   resources :regions,     only: [:index, :show]
