@@ -16,8 +16,8 @@ class SessionsController < ApplicationController
 
   def destroy
     session.destroy
-    redirect_to home_path
-    flash[:notice] = "Successfully logged out"
+    redirect_to home_path, success: "Successfully logged out"
+    # flash[:notice] = "Successfully logged out"
   end
 
   private
