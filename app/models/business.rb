@@ -3,7 +3,7 @@ class Business < ActiveRecord::Base
   has_many :investments
   has_many :business_categories
   has_many :categories, through: :business_categories
-  
+
   validates :name, presence: true
   validates :description, presence: true
   validates :funding_needed, presence: true, numericality: { greater_than: 0 }
@@ -12,8 +12,9 @@ class Business < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/png"]
 
   def self.promoted
-    Business.all.sample(2)
+    Business.all.sample(6)
   end
+
   # def self.active_items
   #   Item.where(retired: false)
   # end
