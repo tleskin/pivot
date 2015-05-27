@@ -10,6 +10,7 @@ class Seed
     create_categories
     create_businesses
     create_investments
+    calculate_funding_to_date
   end
 
   def create_regions
@@ -130,6 +131,10 @@ class Seed
       business_id = Business.all.sample.id
       Investment.create!(user_id: user_id, business_id: business_id, amount: investment)
     end
+  end
+
+  def calculate_funding_to_date
+    Business.all.each { |business| business.add_to_funding }
   end
 
 end
