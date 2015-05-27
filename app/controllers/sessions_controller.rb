@@ -9,15 +9,13 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_back_or user_path(@user)
     else
-      flash.now[:errors] = "Invalid login"
-      redirect_back_or user
+      redirect_to root_path, danger: "Invalid login"
     end
   end
 
   def destroy
     session.destroy
     redirect_to home_path, success: "Successfully logged out"
-    # flash[:notice] = "Successfully logged out"
   end
 
   private
