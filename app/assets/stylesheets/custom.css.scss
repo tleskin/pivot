@@ -46,7 +46,7 @@ table {
   border-radius:5px;
 	margin-top: 5px;
 	margin-bottom: 5px;
-
+	height: 250px;
 }
 
 .individual_business{
@@ -92,6 +92,7 @@ margin-bottom: 15px;
   text-align: center;
 	background: black;
 	opacity: .7;
+	border: 0 !important;
 	padding-top: 10px;
 	position: fixed;
 	top: 0px;
@@ -345,7 +346,7 @@ $muted: #777;
 .region-data {
   display: block;
   text-align: center;
-  margin-top: 90px;  
+  margin-top: 90px;
 }
 
 .region-data img {
@@ -357,5 +358,3 @@ $muted: #777;
   margin-left: auto;
   margin-right: auto;
 }
-
-
