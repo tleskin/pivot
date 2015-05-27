@@ -1,0 +1,23 @@
+<!-- Login Modal -->
+<div class="modal fade" id="modal-create-regional-admin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Create Regional Admin</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(:user, url: :admin_regional_new_admin) do |f| %>
+          <%= f.text_field :first_name, placeholder: 'first name', class: 'login-text' %><br>
+          <%= f.text_field :last_name, placeholder: 'last name', class: 'login-text' %><br>
+          <%= f.text_field :username, placeholder: 'username', class: 'login-text' %><br>
+          <%= f.text_field :email, placeholder: 'email address', class: 'login-text' %><br>
+          <%= f.password_field :password, placeholder: 'password', class: 'login-text' %><br>
+          <%= f.password_field :password_confirmation, placeholder: 'confirm password', class: 'login-text' %><br>
+      <div class="modal-footer">
+          <%= f.submit 'Create Account', class: 'btn btn-success' %>
+        <% end %><br>
+      </div>
+    </div>
+  </div>
+</div>
