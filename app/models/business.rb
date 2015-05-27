@@ -1,7 +1,7 @@
 class Business < ActiveRecord::Base
   belongs_to :region
-  has_many :investments
-  has_many :business_categories
+  has_many :investments, dependent: :destroy
+  has_many :business_categories, dependent: :destroy
   has_many :categories, through: :business_categories
 
   validates :name, presence: true
