@@ -11,6 +11,13 @@ class Business < ActiveRecord::Base
   has_attached_file :image, default_url: "default_business_image.jpg"
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/png"]
 
+  def add_to_funding
+    funding_to_date = investments.reduce(0) do |sum, investment|
+      sum += investment.amount
+    end
+    self.update(funding_to_date: funding_to_date)
+  end
+
   def self.promoted
     Business.all.sample(6)
   end
