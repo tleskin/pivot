@@ -33,4 +33,5 @@ group :development, :test do
   gem 'launchy'
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'
+  gem 'brakeman'
 end
