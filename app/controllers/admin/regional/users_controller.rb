@@ -1,35 +1,32 @@
 class Admin::Regional::UsersController < Admin::Regional::BaseController
 
   def index
-    @admins = User.regional_managers(current_user.id)
+    @admins = User.regional_managers(current_user.region_id)
   end
 
   def new
-    binding.pry
-    @user = User.new
   end
 
   def create
-    # @user = User.new(user_params)
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to @user
+    user = User.new(admin_params)
+    if user.save
+      user.update(region_id: current_user.region_id, role: 1)
+      redirect_to admin_regional_users_path
     else
-      puts "HERE***************************"
-      flash[:notice] = "Invalid fields"
-      redirect_to root_path
+      flash[:notice] = "Invalid attributes, new admin not created."
+      redirect_to admin_regional_users_path
     end
   end
 
   def destroy
     User.make_default(params[:id])
-    redirect_to admin_regional_admins_path
+    redirect_to admin_regional_users_path
   end
 
   private
 
   def admin_params
-
+    params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation)
   end
 
 end

@@ -31,6 +31,14 @@
       <p>About Us</p>
     </div>
     </div>
-    <%= render :partial => 'partials/modal_login' %>
+
+    <div class="all-modals">
+      <% if logged_in? %>
+        <%= render :partial => 'partials/new_regional_admin_modal' %>
+      <% else %>
+        <%= render :partial => 'partials/modal_login' %>
+        <%= render :partial => 'partials/new_user_modal' %>
+      <% end %>
+    </div>
   </body>
 </html>

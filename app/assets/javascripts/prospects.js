@@ -33,15 +33,12 @@ $(document).ready(function() {
 
     var updateAmount = function(amount){
       var change = amount
-      console.log($(".element").data("business-id"))
-      console.log(amount)
       $.ajax({
         method: "POST",
         url: "/prospects_update",
         data: { id: $(".element").data("business-id"), change: change }
       })
       .done(function( msg ) {
-        // return $(".update-box").val(amount)    
       });
     }
 
@@ -68,4 +65,4 @@ $(document).ready(function() {
         }
     });
 
-})
+});
