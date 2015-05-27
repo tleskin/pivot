@@ -7,7 +7,7 @@
         <h4 class="modal-title" id="myModalLabel">Create Regional Admin</h4>
       </div>
       <div class="modal-body">
-        <%= form_for(:user, url: :admin_regional_new_admin) do |f| %>
+        <%= form_for(:user, url: :regional_admin_users) do |f| %>
           <%= f.text_field :first_name, placeholder: 'first name', class: 'login-text' %><br>
           <%= f.text_field :last_name, placeholder: 'last name', class: 'login-text' %><br>
           <%= f.text_field :username, placeholder: 'username', class: 'login-text' %><br>

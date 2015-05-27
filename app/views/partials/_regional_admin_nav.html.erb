@@ -9,10 +9,10 @@
         <%= link_to "My Account", user_path(current_user), class: "navbutton" if current_user %>
       </li>
        <li>
-        <%= link_to "Region Information", root_path %>
+        <%= link_to "Region Information", regional_admin_region_path(id: current_user.region_id) %>
       </li>
       <li>
-        <%= link_to "Administrators", admin_regional_users_path %>
+        <%= link_to "Administrators", regional_admin_users_path %>
       </li>
       <li>
         <%= link_to "Businesses", root_path %>

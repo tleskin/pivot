@@ -1,4 +1,4 @@
-class Admin::Regional::UsersController < Admin::Regional::BaseController
+class RegionalAdmin::UsersController < RegionalAdmin::BaseController
 
   def index
     @admins = User.regional_managers(current_user.region_id)
@@ -11,16 +11,16 @@ class Admin::Regional::UsersController < Admin::Regional::BaseController
     user = User.new(admin_params)
     if user.save
       user.update(region_id: current_user.region_id, role: 1)
-      redirect_to admin_regional_users_path
+      redirect_to regional_admin_users_path
     else
       flash[:notice] = "Invalid attributes, new admin not created."
-      redirect_to admin_regional_users_path
+      redirect_to regional_admin_users_path
     end
   end
 
   def destroy
     User.make_default(params[:id])
-    redirect_to admin_regional_users_path
+    redirect_to regional_admin_users_path
   end
 
   private
