@@ -12,7 +12,7 @@ class Business < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/png"]
 
   def self.promoted
-    Business.all.sample(2)
+    Business.all.sample(6)
   end
 
   # def self.active_items

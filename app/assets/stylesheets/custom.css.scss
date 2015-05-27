@@ -33,20 +33,25 @@ table {
 }
 
 .item{
-  background-color: none;
-  color: black;
-	font-family: Raleway, sans-serif;
+	background: black;
+	opacity: .7;
+	color: white;
   text-align: center;
   border:1px solid black;
-	padding: 15px 15px 15px 15px;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
 	-webkit-background-clip: padding-box;
-	background-clip: padding-box;
   border-radius:5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+
 }
 
 .individual_business{
   background-color: none;
-  color: black;
+  color: white;
 	font-family: Raleway, sans-serif;
   text-align: center;
 	padding: 15px 15px 15px 15px;
@@ -56,7 +61,8 @@ table {
 }
 
 .col-lg-6, .col-md-6, .col-sm-6 {
-padding: 5px;
+padding: 15px;
+margin-bottom: 15px;
 }
 
 .info-box {
