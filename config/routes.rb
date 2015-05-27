@@ -1,20 +1,21 @@
 Rails.application.routes.draw do
 
-  namespace :regions, as: :region, path: '/:region' do
-    resources :businesses, only: [:index, :show]
-  end
-  
+
   namespace :regional_admin do
-    resources :region_businesses, only: [:index, :show, :destroy]
+    resources :businesses, only: [:index, :show, :destroy]
     resources :users, only: [:index, :new, :destroy, :create]
     resources :region, only: [:show, :edit, :update]
+  end
+
+  namespace :regions, as: :region, path: '/:region' do
+    resources :businesses, only: [:index, :show]
   end
 
   resources :regions,     only: [:index, :show]
   resources :portfolio,   only: [:show]
   resources :categories,  only: [:index, :show]
   resources :prospects,   only: [:index, :show, :create]
-  resources :investments, only: [:show, :index, :new, :create, :update] 
+  resources :investments, only: [:show, :index, :new, :create, :update]
 
   post '/prospects_update', to: 'prospects#update'
 
@@ -54,7 +55,7 @@ Rails.application.routes.draw do
   # resources :reviews
   # resources :categories, only:[:index, :show]
   # resources :items, only:[:show]
-  
+
   # resources :purchases, only:[:create]
   # resources :carts, only:[:show]
 
