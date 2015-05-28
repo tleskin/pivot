@@ -22,17 +22,4 @@ class Business < ActiveRecord::Base
     Business.all.sample(6)
   end
 
-  # def self.active_items
-  #   Item.where(retired: false)
-  # end
-
-  # def dec_price
-  #    price/100
-  # end
-
-  # def average_score
-  #   scores = reviews.map(&:score)
-  #   scores.reduce(:+)/scores.length
-  # end
-
 end

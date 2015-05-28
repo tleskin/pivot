@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'user' do
-  it 'can be created' do
+  xit 'can be created' do
     visit new_user_path
     fill_in "First name", with: "Steve"
     fill_in "Last name", with: "Jones"
