@@ -12,8 +12,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user
     else
-      flash[:notice] = "Invalid fields"
-      render :new
+      redirect_to root_path, danger: "Invalid fields, user not created."
     end
   end
 
