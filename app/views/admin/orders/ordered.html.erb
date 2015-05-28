@@ -1,5 +1,0 @@
-<h2>Ordered</h2><br />
-<% @ordered_orders.each do |ordered| %>
-<%= link_to "Order# #{ordered.id}", admin_order_path(ordered.id) %><br />
-<% end %>
-<%= "Total Ordered Orders: #{@ordered_orders.size}" %><br /><br />

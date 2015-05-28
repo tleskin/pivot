@@ -34,4 +34,5 @@ group :development, :test do
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'
   gem 'brakeman'
+  gem 'better_errors'
 end

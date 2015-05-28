@@ -7,27 +7,13 @@ class ApplicationController < ActionController::Base
 
   add_flash_types :success, :info, :warning, :danger
 
-  before_action :load_portfolio
   before_action :load_prospects
+  before_action :store_path
 
-
-
-  include SessionsHelper
-
-  def platform_admin?
-    @current_user && current_user.platform_admin?
-  end
-
-  def regional_admin?
-    @current_user && current_user.regional_admin?
-  end
+  include ApplicationHelper
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-
-  def load_portfolio
-    @portfolio ||= Portfolio.new(session[:portfolio])
+    @current_user ||= logged_in_user
   end
 
   def load_prospects
@@ -44,6 +30,23 @@ class ApplicationController < ActionController::Base
 
   def prospects
     load_prospects
+  end
+
+  def store_path
+    session[:forward] = {controller:  params[:controller], 
+                         action:      params[:action],
+                         region:      params[:action],
+                         id:          params[:id]}
+  end
+
+  private
+
+  def logged_in_user
+    if session[:user_id]
+      return User.find(session[:user_id])
+    else
+      return Guest.new      
+    end
   end
 
 end

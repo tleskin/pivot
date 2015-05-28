@@ -1,6 +1,0 @@
-<h1>Yep</h1>
-<h2>Completed</h2><br />
-<% @completed_orders.each do |completed| %>
-<%= link_to "Order# #{completed.id}", admin_order_path(completed.id) %><br />
-<% end %>
-<%= "Total Completed Orders: #{@completed_orders.size}" %><br /><br />

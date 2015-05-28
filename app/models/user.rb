@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
     role == 'platform-admin'
   end
 
+  def guest?
+    role == 'guest'
+  end
+
   def investments_detail
     investments.map do |investment|
       investment.details

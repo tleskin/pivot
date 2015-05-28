@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  skip_before_action :store_path
+
   def new
   end
 
@@ -7,7 +9,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_back_or user_path(@user)
+      where_to_redirect_authenticated_user
     else
       redirect_to root_path, danger: "Invalid login"
     end
@@ -20,11 +22,12 @@ class SessionsController < ApplicationController
 
   private
 
-  def redirect_to_landing_page(user)
-    if user.admin?
-      redirect_to admin_path(user)
+  def where_to_redirect_authenticated_user
+    user = User.find(session[:user_id]) 
+    if user.role == 'regional-admin'
+      redirect_to regional_admin_region_path(id: user.region_id), success: "You are logged in as a regional manager."
     else
-      redirect_to user
+      happy_forwarding("You are logged in.")
     end
   end
 
