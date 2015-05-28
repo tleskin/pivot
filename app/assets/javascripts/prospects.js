@@ -65,4 +65,17 @@ $(document).ready(function() {
         }
     });
 
+    $(".lend-box").keyup(function(event){
+        var input = this;
+        if (!invalidKeyCodes[event.keyCode]) {
+          clearTimeout(timeoutId)
+          timeoutId = setTimeout(function() {
+            var amount = $(input).val()
+            var clean  = cleanCurrency(amount)
+            var formatted = formatCurrency(clean)
+            $(input).val(formatted)
+          }, 1200)  
+        }
+    });
+
 });
