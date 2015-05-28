@@ -12,9 +12,9 @@
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <% if regional_admin? %>
+      <% if current_user.regional_admin? %>
         <%= render partial: 'partials/regional_admin_nav' %>
-      <% elsif platform_admin? %>
+      <% elsif current_user.platform_admin? %>
         <%= render partial: 'partials/platform_admin_nav' %>
       <% else %>
         <%= render partial: 'partials/default_nav' %>

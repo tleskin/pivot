@@ -1,5 +1,0 @@
-<h2>Paid</h2><br />
-<% @paid_orders.each do |paid| %>
-<%= link_to "Order# #{paid.id}", admin_order_path(paid.id) %><br />
-<% end %>
-<%= "Total Paid Orders: #{@paid_orders.size}" %><br /><br />

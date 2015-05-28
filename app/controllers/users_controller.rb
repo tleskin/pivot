@@ -39,12 +39,6 @@ class UsersController < ApplicationController
 
   private
 
-  def logged_in_user
-    unless logged_in?
-      redirect_to login_path
-    end
-  end
-
   def user_params
     params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation)
   end

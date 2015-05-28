@@ -1,11 +1,9 @@
 class ProspectsController < ApplicationController
-  before_action :store_location
+
+  skip_before_action :store_path, only: [:create]
 
   def index
     @prospects_info = @prospects.details
-  end
-
-  def tester
   end
 
   def update
@@ -17,7 +15,7 @@ class ProspectsController < ApplicationController
   def create
     @prospects.add(prospect_params)
     session[:prospects] = @prospects.contents
-    redirect_to root_path
+    happy_forwarding("Prospect has been added.")
   end
 
   private
