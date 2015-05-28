@@ -9,7 +9,7 @@
 
           <p>Funding needed:</p>
           <p><%= number_to_currency(business.funding_needed / 100) %></p>
-          <p>Funding to date:</p>
+          <p>Funding Raised:</p>
           <p><%= number_to_currency(business.funding_to_date / 100) %></p>
           <p><%= link_to "Learn More", region_business_path(id: business.id) %></p>
         </div>
