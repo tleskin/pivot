@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by(email: params[:user][:email])
+    @user = User.find(current_user.id)
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
