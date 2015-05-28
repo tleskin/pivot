@@ -1,5 +1,7 @@
+<div class="element">
 <%= form_for(:prospect, url: :prospects) do |f| %>
   <%= f.hidden_field :business_id, value: @business.id %>
-  <%= f.text_field :amount %>
-  <%= f.submit "Lend"%>
+  <p><%= f.text_field :amount %>
+  <%= f.submit "Lend"%></p>
 <% end %>
+</div>
