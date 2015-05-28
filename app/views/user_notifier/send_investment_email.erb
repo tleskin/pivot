@@ -1,0 +1,8 @@
+Hi <%= @user.first_name %>!
+
+Here are your investments:
+
+<% @investments.each do |investment| %>
+<p><%= investment.business_name %></p>
+<p><%= investment.amount %></p>
+<% end %>

@@ -45,6 +45,19 @@ class User < ActiveRecord::Base
     find(id).update(region_id: nil, role: 0)
   end
 
+  def last_investment_group
+    last_date = self.investments.last.updated_at.strftime('%c')
+    self.investments.select do |investment|
+
+      binding.pry
+      investment.updated_at.strftime('%c') == last_date
+    end
+  end
+
+  def last_investment_group_details
+    last_investment_group.map { |investment| investment.details}
+  end
+
   private
 
   def already_has_password?

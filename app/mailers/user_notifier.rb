@@ -7,4 +7,12 @@ class UserNotifier < ActionMailer::Base
     mail( :to => @user.email,
     :subject => 'Thanks for signing up for Lend.io' )
   end
+
+  def send_investment_email(user, investments)
+    @user = user
+    @investments = investments
+    
+    mail( to: @user.email,
+    subject: "Investments on #{@investments.first.date}: Thanks for your investments!")
+  end
 end
