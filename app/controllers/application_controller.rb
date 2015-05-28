@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   def store_path
     session[:forward] = {controller:  params[:controller], 
                          action:      params[:action],
-                         region:      params[:action],
+                         region:      params[:region],
                          id:          params[:id]}
   end
 
