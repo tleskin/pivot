@@ -2,5 +2,5 @@
 <h2>My Investments</h2>
 <% @investments.each do |investment| %>
   <p>Business: <%= investment.business_name %> </p>
-  <p>$<%= investment.amount %> </p>
+  <p><%= investment.amount %> </p>
 <% end %>
