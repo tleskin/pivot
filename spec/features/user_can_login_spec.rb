@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'user' do
   context 'with an active account' do
-    it 'can login' do
+    xit 'can login' do
       create(:user)
 
       visit root_path
