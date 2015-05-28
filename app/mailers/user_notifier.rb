@@ -11,8 +11,17 @@ class UserNotifier < ActionMailer::Base
   def send_investment_email(user, investments)
     @user = user
     @investments = investments
-    
+
     mail( to: @user.email,
     subject: "Investments on #{@investments.first.date}: Thanks for your investments!")
+  end
+
+  def send_regional_manager_email(admin, investment)
+    
+    @admin = admin
+    @investment = investment
+
+    mail( to: @admin.email,
+    subject: "Investment recieved!")
   end
 end

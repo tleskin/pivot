@@ -48,8 +48,6 @@ class User < ActiveRecord::Base
   def last_investment_group
     last_date = self.investments.last.updated_at.strftime('%c')
     self.investments.select do |investment|
-
-      binding.pry
       investment.updated_at.strftime('%c') == last_date
     end
   end
