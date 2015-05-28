@@ -19,4 +19,5 @@ class Investment < ActiveRecord::Base
     end
   end
 
+
 end

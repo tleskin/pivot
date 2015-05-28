@@ -17,6 +17,7 @@ class InvestmentsController < ApplicationController
     @investments = current_user.last_investment_group_details
     session[:prospects] = {}
     UserNotifier.send_investment_email(current_user, @investments).deliver_now
+    send_investment_emails(@investments)
     redirect_to root_path
   end
 
