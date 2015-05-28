@@ -9,7 +9,7 @@ class InvestmentsController < ApplicationController
   end
 
   def show
-    @investment = Investment.find_by(params[:id])
+    @investment = current_user.investments.find_by(params[:id])
   end
 
   def create
@@ -17,7 +17,7 @@ class InvestmentsController < ApplicationController
     session[:prospects] = {}
     redirect_to root_path
   end
-  
+
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)

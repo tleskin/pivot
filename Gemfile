@@ -19,6 +19,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem 'paperclip'
 gem 'faker'
+gem 'figaro'
 
 
 group :production do
@@ -34,4 +35,5 @@ group :development, :test do
   gem 'launchy'
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'
+  gem 'brakeman'
 end

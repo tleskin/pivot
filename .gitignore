@@ -16,4 +16,7 @@
 !/log/.keep
 /tmp
 coverage
-public/assets/**
+output_file
+
+# Ignore application configuration
+/config/application.yml

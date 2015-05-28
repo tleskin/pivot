@@ -1,13 +1,13 @@
-<h1>Regions</h1>
+<h2>Regions</h2>
 <div class="container business-info">
   <div class="row">
     <% @regions.each do |region| %>
-      <div class="col-lg-3 col-md-5 col-sm-5">
-        <div class="item">
-          <%= link_to region.name, region_businesses_path(region) %><br>
-          <%= link_to(image_tag(region.image_file_name), region_businesses_path(region)) %><br>
-          Number of businesses: <%= business_count(region) %><br>
-          <%= region.description %>
+    <div class="centered col-lg-4 col-md-4 col-sm-4">
+        <div class="region">
+          <p><h3><%= link_to region.name, region_businesses_path(region) %></h3></p>
+          <p><%= link_to(image_tag(region.image_file_name), region_businesses_path(region)) %></p>
+          <p>Number of businesses: <%= business_count(region) %></p>
+          <p><%= region.description %></p>
         </div>
       </div>
     <% end %>
