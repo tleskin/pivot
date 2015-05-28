@@ -1,17 +1,15 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
-=======
-  namespace :regions, as: :region, path: '/:region' do
-    resources :businesses, only: [:index, :show]
-  end
->>>>>>> testing
-
   namespace :regional_admin do
     resources :businesses, only: [:index, :show, :destroy]
     resources :users, only: [:index, :new, :destroy, :create]
     resources :region, only: [:show, :edit, :update]
   end
+
+  namespace :regions, as: :region, path: '/:region' do
+    resources :businesses, only: [:index, :show]
+  end
+
 
   namespace :regions, as: :region, path: '/:region' do
     resources :businesses, only: [:index, :show]
@@ -39,7 +37,6 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
-<<<<<<< HEAD
   # namespace :admin do
   #   resources :items
   #   resources :categories
@@ -74,6 +71,5 @@ Rails.application.routes.draw do
   # get '/login', to: 'sessions#new'
   # post '/login', to: 'sessions#create'
   # delete '/logout', to: 'sessions#destroy'
-=======
->>>>>>> testing
+
 end
