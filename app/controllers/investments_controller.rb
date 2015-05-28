@@ -14,7 +14,9 @@ class InvestmentsController < ApplicationController
 
   def create
     Investment.generate(@prospects, current_user.id)
+    @investments = current_user.last_investment_group_details
     session[:prospects] = {}
+    UserNotifier.send_investment_email(current_user, @investments).deliver_now
     redirect_to root_path
   end
 
