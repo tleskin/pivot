@@ -37,6 +37,10 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6359291cd56cc3d55ef256badf70954c9ed62a58
   # namespace :admin do
   #   resources :items
   #   resources :categories
@@ -71,5 +75,8 @@ Rails.application.routes.draw do
   # get '/login', to: 'sessions#new'
   # post '/login', to: 'sessions#create'
   # delete '/logout', to: 'sessions#destroy'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6359291cd56cc3d55ef256badf70954c9ed62a58
 end
