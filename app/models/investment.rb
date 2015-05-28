@@ -8,7 +8,9 @@ class Investment < ActiveRecord::Base
 
   def details
     OpenStruct.new(business_name: Business.find(self.business_id).name,
-                   amount: monetize(self.amount))
+                   amount: monetize(self.amount),
+                   date: self.updated_at.strftime('%v'),
+                   raw_date: self.updated_at)
   end
 
   def self.generate(prospects, user_id)
