@@ -1,13 +1,15 @@
 <div class="region-data">
-  <h3><%= @region.name %></h3>
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-xs-offset-4">
+      <div class="col-xs-12">
+        <div class="region-admin">
+          <h3><%= @region.name %></h3>
         <%= image_tag(@region.image) %><br><br>
         <h4><strong>Region Description</strong></h4>
         <h4><%= @region.description %></h4><br>
         <%= link_to "View the #{@region.business_count} businesses in your region", root_path %><br><br><br>
         <%= button_to "Edit Region Information", edit_regional_admin_region_path, class: 'btn btn-success', method: :get %>
+      </div>
       </div>
     </div>
   </div>

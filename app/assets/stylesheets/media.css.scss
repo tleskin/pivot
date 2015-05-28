@@ -246,3 +246,83 @@
 		margin-top: 15px;
   }
 }
+
+
+/* responsive formatting for region-admin */
+
+.region-admin{
+	background: black;
+	opacity: .9;
+	color: white;
+  text-align: center;
+  // border:1px solid black;
+	// padding-top: 20px;
+	// padding-left: 20px;
+	// padding-right: 20px;
+	// padding-bottom: 20px;
+	// -webkit-background-clip: padding-box;
+  border-radius:5px;
+	margin-bottom: 5px;
+	display: block;
+	text-align: center;
+	margin: 0	auto;
+	margin-top: 30px;
+}
+
+@media (min-width: 1170px) {
+  .region-admin {
+		display: block;
+		text-align: center;
+		height: 525px;
+		width: 300px;
+		padding-top: 15px;
+	}
+
+	.region-admin img {
+  	border-radius: 5px;
+    width: 300px;
+		margin-top: 15px;
+  }
+}
+
+@media (min-width: 970px) and (max-width: 1169px) {
+	.region-admin {
+		height: 525px;
+		width: 300px;
+		padding-top: 15px;
+	}
+
+	.region-admin img {
+  	border-radius: 5px;
+    width: 300px;
+		margin-top: 15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 969px) {
+	.region-admin {
+		height: 525px;
+		width: 220px;
+		padding-top: 15px;
+	}
+
+	.region-admin img {
+  	border-radius: 5px;
+    width: 220px;
+		margin-top: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+	.region-admin {
+		height: 525px;
+		width: 300px;
+		padding-top: 15px;
+	}
+
+	.region-admin img {
+  	border-radius: 5px;
+    width: 300px;
+		margin-top: 15px;
+  }
+}
