@@ -11,10 +11,7 @@
     <ul class="dropdown-menu" role="menu">
       <% if current_user.guest? %>
         <li>
-          <a href="#" data-toggle="modal" data-target="#modal-login">Login</a>
-        </li>
-        <li>
-          <%= link_to "Create Account", new_user_path, class: "navbutton" %>
+          <a href="#" data-toggle="modal" data-target="#modal-login">Login or Create Account</a>
         </li>
       <% else %>
         <li>
