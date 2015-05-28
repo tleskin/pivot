@@ -1,6 +1,6 @@
 class ProspectsController < ApplicationController
 
-  skip_before_action :store_path, only: [:create]
+  skip_before_action :store_path, only: [:create, :update]
 
   def index
     @prospects_info = @prospects.details
@@ -13,7 +13,8 @@ class ProspectsController < ApplicationController
   end
 
   def create
-    @prospects.add(prospect_params)
+    @prospects.add({'business_id' => prospect_params[:business_id], 
+                    'amount' => turn_money_to_pennies(prospect_params[:amount])})
     session[:prospects] = @prospects.contents
     happy_forwarding("Prospect has been added.")
   end

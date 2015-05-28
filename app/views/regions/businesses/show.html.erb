@@ -2,15 +2,15 @@
         <div class="individual_business">
           <div class="col-xs-12">
             <div class="region-admin">
-          <p><h2><%= @business.name %></h2></p>
-          <p><%= image_tag(@business.image) %></p>
-          <p><%= @business.description %></p>
-          <p> Funding Needed: </p>
-          <p><%= number_to_currency(@business.funding_needed / 100) %></p>
-          <p> Funding Raised: </p>
-          <p><%= number_to_currency(@business.funding_to_date / 100) %></p>
-          <p><%= render partial: 'partials/lend' %></p>
-          <div>
+              <p><h2><%= @business.name %></h2></p>
+              <p><%= image_tag(@business.image) %></p>
+              <p><%= @business.description %></p>
+              <p> Funding Needed: </p>
+              <p><%= number_to_currency(@business.funding_needed / 100) %></p>
+              <p> Funding Raised: </p>
+              <p><%= number_to_currency(@business.funding_to_date / 100) %></p>
+              <p><%= render partial: 'partials/lend' %></p>
+            <div>
           </div>
         </div>
       </div>

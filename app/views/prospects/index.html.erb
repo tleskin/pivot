@@ -15,13 +15,13 @@
         <% @prospects_info.each do |prospect| %>
         <tr>
           <div class='prospect'>
-            <td><%= link_to "#{prospect.business.name}", region_business_path(region: prospect.business.region_id, id: prospect.business.id) %>
+            <td><%= link_to "#{prospect.business.name}", region_business_path(region: prospect.business.region_id, id: prospect.business.id), class: 'prospect-link' %>
             </td>
             <td class="element" data-business-id= "<%= prospect.business.id  %>" >
               <%= text_field_tag :data, nil, value: prospect.amount, class: 'update-box' %>
             </td>
             <td>
-              <%= button_to "remove", prospects_update_path(id: prospect.business.id, change: 'remove'), class: 'btn btn-danger', method: :post %>
+              <%= link_to "remove", prospects_update_path(id: prospect.business.id, change: 'remove'), class: 'remove-link', method: :post %>
             </td>
           </div>
         </tr>

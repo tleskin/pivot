@@ -6,13 +6,20 @@ footer, header, hgroup, menu, nav, section {
 
 h2 {
 	color: white;
+  font-size: 20px;
 }
 
 p {
 	color: white;
 }
 
+.prospect-link {
+  color: white;
+}
 
+.remove-link {
+  color: yellow;
+}
 
 body {
   // font-family: Raleway, sans-serif;
@@ -324,6 +331,7 @@ $muted: #777;
 
 .element input {
   text-align: right;
+  color: black;
 }
 
 .new-user {
