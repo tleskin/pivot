@@ -4,9 +4,11 @@ class Investment < ActiveRecord::Base
   belongs_to :business
   belongs_to :user
 
+  include MoneyHelper
+
   def details
     OpenStruct.new(business_name: Business.find(self.business_id).name,
-                   amount: self.amount)
+                   amount: monetize(self.amount))
   end
 
   def self.generate(prospects, user_id)
