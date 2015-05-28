@@ -18,6 +18,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem 'paperclip'
 gem 'faker'
+gem 'figaro'
 
 
 group :production do

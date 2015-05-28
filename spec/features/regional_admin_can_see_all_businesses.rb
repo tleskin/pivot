@@ -11,12 +11,11 @@ RSpec.describe 'admin' do
                   password_confirmation: "password",
                   role: 1)
     }
-    it 'can see all categories' do
+    it 'can see a list of businesses' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-      create(:category)
-      create(:category, name: "Fire")
-      visit admin_categories_path
-      expect(page).to have_content("Fire")
+      create(:business)
+      visit regional_admin_region_businesses_path
+      expect(page).to have_content("Bizniz")
     end
   end
 end

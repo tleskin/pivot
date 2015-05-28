@@ -9,9 +9,9 @@ RSpec.describe Category, type: :model do
       expect(category).to be_valid
     end
 
-    it 'has one or many items' do
+    it 'has one or many businesses' do
       category.save
-      expect(category.items).to eq([])
+      expect(category.businesses).to eq([])
     end
   end
 

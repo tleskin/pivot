@@ -15,7 +15,7 @@ RSpec.describe 'User' do
     end
 
     it 'has orders' do
-      expect(user.orders).to eq([])
+      expect(user.investments).to eq([])
     end
   end
 

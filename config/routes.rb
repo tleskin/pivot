@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     resources :businesses, only: [:index, :show]
   end
 
+
+  namespace :regions, as: :region, path: '/:region' do
+    resources :businesses, only: [:index, :show]
+  end
+
   resources :regions,     only: [:index, :show]
   resources :portfolio,   only: [:show]
   resources :categories,  only: [:index, :show]
