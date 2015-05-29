@@ -17,11 +17,28 @@ class UserNotifier < ActionMailer::Base
   end
 
   def send_regional_manager_email(admin, investment)
-    
     @admin = admin
     @investment = investment
 
     mail( to: @admin.email,
     subject: "Investment recieved!")
   end
+
+  def send_new_region_email_registered(current_user, region)
+    @current_user = current_user
+    @region = region
+    
+    mail( to: @current_user.email,
+    subject: "Region created!")
+  end
+
+  def send_new_region_email_guest(email, region)
+    @email = email
+    @region = region
+
+    mail( to: @email,
+    subject: "Region created!")
+  end
+
+
 end
