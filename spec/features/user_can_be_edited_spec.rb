@@ -1,19 +1,25 @@
 require 'rails_helper'
 
 RSpec.describe 'user' do
-  context 'with an active account' do
-
+  context 'that has been created' do
+    # let(:user){
+    #   User.create(id: 1,
+    #               first_name: "Bill",
+    #               last_name: "Jones",
+    #               username: "bjones",
+    #               email: "bill@jones.com",
+    #               password: "password",
+    #               password_confirmation: "password")
+    # }
     xit 'can be edited' do
       user = create(:user)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit edit_user_path(id: user.id)
-      fill_in "First name", with: "Steve"
-      fill_in "Last name", with: "Jones"
-      fill_in "Email", with: "s@jones.com"
-      fill_in "Password", with: "password"
-      fill_in "Password confirmation", with: "password"
-      click_button "Update User"
-      expect(user.first_name).to eq("Steve")
+      within('.edit_user') do
+        save_and_open_page
+        fill_in "user[first_name]", with: "steve"
+        click_button "Update User"
+      end
+      expect(page).to have_content("steve")
     end
   end
 end

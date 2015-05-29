@@ -5,18 +5,39 @@ RSpec.describe Prospects, type: :model do
     let(:prospect){
       Prospects.new({})
     }
-
-    xit 'can add contents' do
-      prospect.add({1 => 1})
-      expect(prospect.contents).to eq({"1" => 1})
+    let(:business){
+      Business.create(id: 1,
+                   name: "Biz",
+                   description: "Nass",
+                   funding_needed: 12)
+    }
+    it 'can add contents' do
+      prospect.contents.class
+      prospect.add({nil => 0})
+      expect(prospect.contents).to eq({nil => 0})
     end
 
-    xit 'can count the contents' do
-      prospect.add({"1" => 1})
-      prospect.add({"2" => 1})
-      prospect.add({"3" => 1})
-      expect(prospect.count_them).to eq(3)
+    it 'can count the contents' do
+      expect(prospect.count_them).to eq(0)
+      prospect.add({"1" => "1"})
+      expect(prospect.count_them).to eq(1)
     end
+
+    it 'can adjust prospect data' do
+      prospect.adjust({"1"=> 1})
+      expect(prospect.contents).to eq({})
+    end
+
+    it 'can take details of contents' do
+      expect(prospect.details).to eq([])
+    end
+
+    it 'can return prospect info struct' do
+      business
+      info = prospect.prospect_info(1, 1)
+      expect(info.class).to eq(OpenStruct)
+    end
+
 
   end
 end

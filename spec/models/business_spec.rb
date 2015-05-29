@@ -46,6 +46,10 @@ RSpec.describe Business, type: :model do
       expect(business.investments).to eq([])
     end
 
+    it 'has image or default image' do
+      expect(business.image.class).to eq(Paperclip::Attachment)
+    end
+
     it 'can add to funding' do
       expect(business.funding_to_date).to eq(0)
       user
@@ -54,8 +58,9 @@ RSpec.describe Business, type: :model do
       expect(business.funding_to_date).to eq(1)
     end
 
-    xit 'can sample 6 businesses to the promo page' do
-
+    it 'can sample 6 businesses to the promo page' do
+      business
+      expect(Business.promoted.count).to eq(1)
     end
 
   end
