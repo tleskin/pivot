@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   namespace :regional_admin do
     resources :businesses, only: [:index, :show, :destroy, :edit, :update]
-    resources :users, only: [:index, :new, :destroy, :create]
+    resources :users, only: [:index, :new, :destroy, :create, :update, :edit]
     resources :region, only: [:show, :edit, :update]
+    post   '/make_admin', to: 'users#make_admin'
   end
 
   namespace :regions, as: :region, path: '/:region' do

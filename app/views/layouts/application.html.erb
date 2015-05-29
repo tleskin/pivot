@@ -29,6 +29,7 @@
 
     <div class="all-modals">
       <% if logged_in? %>
+        <%= render :partial => 'partials/regional_admin_modal' %>
         <%= render :partial => 'partials/new_regional_admin_modal' %>
       <% else %>
         <%= render :partial => 'partials/modal_login' %>
