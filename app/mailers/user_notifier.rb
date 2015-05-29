@@ -1,5 +1,5 @@
 class UserNotifier < ActionMailer::Base
-  default :from => 'hello@lend.io'
+  default :from => 'tleskin@gmail.com'
 
   # send a signup email to the user, pass in the user object that   contains the user's email address
   def send_signup_email(user)
@@ -27,7 +27,7 @@ class UserNotifier < ActionMailer::Base
   def send_new_region_email_registered(current_user, region)
     @current_user = current_user
     @region = region
-    
+
     mail( to: @current_user.email,
     subject: "Region created!")
   end
