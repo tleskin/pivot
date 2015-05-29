@@ -25,8 +25,9 @@ module ApplicationHelper
 
   def send_admin_email(admins, investment)
     admins.each do |admin|
-
-      UserNotifier.send_regional_manager_email(admin, investment).deliver_now
+      @admin = admin
+      @investment = investment
+      UserNotifier.send_regional_manager_email(@admin, @investment).deliver_now
     end
   end
 
