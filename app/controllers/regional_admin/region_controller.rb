@@ -1,7 +1,8 @@
 class RegionalAdmin::RegionController < RegionalAdmin::BaseController
 
   def show
-    @region = Region.find(current_user.region_id)
+    @region     = Region.find(current_user.region_id)
+    @businesses = Business.where(region_id: current_user.region_id) 
   end
 
   def edit

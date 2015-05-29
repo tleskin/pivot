@@ -3,15 +3,19 @@
     <% @businesses.each do |business| %>
     <div class="centered col-lg-4 col-md-4 col-sm-4">
         <div class="business">
-          <p><h4><%= link_to( business.name, region_business_path(id: business.id)) %></h4></p>
+          <p><h4><%= link_to( business.name, region_business_path(region: business.region_id, id: business.id)) %></h4></p>
 
-          <p><%= link_to( image_tag(business.image), region_business_path(id: business.id)) %></p>
+          <p><%= link_to( image_tag(business.image), region_business_path(region: business.region_id, id: business.id)) %></p>
 
           <p>Funding needed:</p>
           <p><%= number_to_currency(business.funding_needed / 100) %></p>
           <p>Funding Raised:</p>
           <p><%= number_to_currency(business.funding_to_date / 100) %></p>
-          <p><%= link_to "Learn More", region_business_path(id: business.id) %></p>
+          <% if current_user.regional_admin? %>
+            <p><%= link_to "Edit", edit_regional_admin_business(region: business.region_id, id: business.id), class: 'edit-link' %></p>
+          <% else %>
+            <p><%= link_to "Learn More", region_business_path(region: business.region_id, id: business.id) %></p>
+          <% end %>
         </div>
       </div>
     <% end %>
