@@ -16,8 +16,13 @@ class RegionsController < ApplicationController
   def create
     email = params[:region][:email]
     region = Region.new(region_params)
-    
+
     if region.save
+      if email.nil?
+        UserNotifier.send_new_region_email_registered(current_user, region).deliver_now
+      else
+        UserNotifier.send_new_region_email_guest(email, region).deliver_now
+      end
       redirect_to region_path(region), success: "Region has been created."
     else
       redirect_to new_region_path, danger: region.errors.full_messages.join(", ")
