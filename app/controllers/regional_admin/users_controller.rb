@@ -11,10 +11,9 @@ class RegionalAdmin::UsersController < RegionalAdmin::BaseController
     user = User.new(admin_params)
     if user.save
       user.update(region_id: current_user.region_id, role: 1)
-      redirect_to regional_admin_users_path
+      redirect_to regional_admin_users_path, success: "New admin created."
     else
-      flash[:notice] = "Invalid attributes, new admin not created."
-      redirect_to regional_admin_users_path
+      redirect_to regional_admin_users_path, danger: "Invalid attributes, new admin not created."
     end
   end
 

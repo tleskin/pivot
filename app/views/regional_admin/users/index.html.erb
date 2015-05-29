@@ -23,7 +23,7 @@
               <p><%= "#{admin.email}" %></p>
             </td>
             <td>
-              <%= button_to "revoke", regional_admin_user_path(id: admin.id), class: 'btn btn-danger', method: :delete %>
+              <%= link_to "revoke", regional_admin_user_path(id: admin.id), class: 'remove-link', method: :delete %>
             </td>
           </div>
         </tr>
@@ -34,5 +34,5 @@
   </div>
 </div>
 <div class="add-regional-admin">
-  <a href="#" id="create-modal-link" data-toggle="modal" data-target="#modal-create-regional-admin">Add Administrator</a>
+  <a href="#" id="create-modal-link" data-toggle="modal" data-target="#modal-create-regional-admin" class="btn btn-success">Add Administrator</a>
 </div>
