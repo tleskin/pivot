@@ -7,10 +7,14 @@
         <%= image_tag(@region.image) %><br><br>
         <h4><strong>Region Description</strong></h4>
         <h4><%= @region.description %></h4><br>
-        <%= link_to "View the #{@region.business_count} businesses in your region", root_path %><br><br><br>
         <%= button_to "Edit Region Information", edit_regional_admin_region_path, class: 'btn btn-success', method: :get %>
       </div>
       </div>
     </div>
   </div>
+</div>
+<div class="business-data">
+  <br>
+  <h1>Regional Businesses</h1>
+  <%= render  :partial => 'partials/businesses' %>
 </div>
