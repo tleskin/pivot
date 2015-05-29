@@ -14,6 +14,8 @@ class RegionsController < ApplicationController
   end
 
   def create
+    binding.pry
+    email = params[:region][:email]
     region = Region.new(region_params)
     if region.save
       redirect_to region_path(region), success: "Region has been created."
