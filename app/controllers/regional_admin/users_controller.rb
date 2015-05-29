@@ -7,6 +7,22 @@ class RegionalAdmin::UsersController < RegionalAdmin::BaseController
   def new
   end
 
+  def edit
+  end
+
+  def update
+  end
+
+  def make_admin
+    user = User.find_by(email: params[:email])
+    if user
+      user.update(role: 1, region_id: current_user.region_id)
+      redirect_to regional_admin_users_path, success: "New admin added."
+    else
+      redirect_to regional_admin_users_path, danger: "Invalid user."
+    end
+  end
+
   def create
     user = User.new(admin_params)
     if user.save
