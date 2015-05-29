@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  
   before_action :logged_in_user, only: [:edit, :update]
+  skip_before_action :store_path, only: [:create]
 
   def new
     @user = User.new
@@ -10,16 +12,13 @@ class UsersController < ApplicationController
     if @user.save
       UserNotifier.send_signup_email(@user).deliver_now
       session[:user_id] = @user.id
-      redirect_to @user
+      happy_forwarding("Logged in. User account created!")
     else
       redirect_to root_path, danger: "Invalid fields, user not created."
     end
   end
 
   def show
-  end
-
-  def cart
   end
 
   def edit
