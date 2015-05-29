@@ -22,7 +22,7 @@
               <p><%= "#{admin.email}" %></p>
             </td>
             <td>
-              <%= button_to "revoke", regional_admin_user_path(id: admin.id), class: 'btn btn-danger', method: :delete %>
+              <%= link_to "revoke", regional_admin_user_path(id: admin.id), class: 'remove-link', method: :delete %>
             </td>
           </div>
         </tr>
