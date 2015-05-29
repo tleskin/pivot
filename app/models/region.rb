@@ -11,4 +11,7 @@ class Region < ActiveRecord::Base
     businesses.count
   end 
 
+  def email
+  end
+
 end
