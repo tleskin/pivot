@@ -4,19 +4,18 @@
       <div class="col-xs-4 col-xs-offset-4">
         <%= image_tag(@region.image) %><br><br>
 
-        <%= form_for(:region, url: :regional_admin_region, html: {multipart: true}, method: :put) do |f|%>
+        <%= form_for(@region, html: {multipart: true}) do |f|%>
         <h4>
           <%= f.label :name %><br>
-          <%= f.text_field :name, value: @region.name %><br><br>
+          <%= f.text_field :name %><br><br>
           <%= f.label :description %><br>
-          <%= f.text_area :description, value: @region.description %><br><br>
-          <%= f.label :image, "Change Image " %>
+          <%= f.text_area :description %><br><br>
+          <%= f.label :image, "New Image " %>
           <%= f.file_field :image, class: 'file-field' %><br>
         </h4>
-          <%= f.submit "Save Data", class: "btn btn-success" %>
+          <%= f.submit "Create Region", class: "btn btn-success" %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-

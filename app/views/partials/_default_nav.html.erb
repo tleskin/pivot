@@ -13,6 +13,9 @@
         <li>
           <a href="#" data-toggle="modal" data-target="#modal-login">Login or Create Account</a>
         </li>
+        <li>
+          <%= link_to "Create Region", new_region_path %>
+        </li>
       <% else %>
         <li>
           <%= link_to "Logout", logout_path, method: "delete"%>
@@ -22,6 +25,9 @@
         </li>
         <li>
           <%= link_to "My Investments", investments_path %> 
+        </li>
+        <li>
+          <%= link_to "Create Region", new_region_path %>
         </li>
       <% end  %>
     </ul>

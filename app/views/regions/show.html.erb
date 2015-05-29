@@ -1,2 +1,14 @@
-<h2><%= @region.name %></h2>
-  <p><%= @region.description %></p>
+<div class="region-data">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="region-admin">
+          <h3><%= @region.name %></h3>
+        <%= image_tag(@region.image) %><br><br>
+        <h4><strong>Region Description</strong></h4>
+        <h4><%= @region.description %></h4><br>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
