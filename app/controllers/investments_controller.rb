@@ -18,7 +18,7 @@ class InvestmentsController < ApplicationController
     session[:prospects] = {}
     UserNotifier.send_investment_email(current_user, @investments).deliver_now
     send_investment_emails(@investments)
-    redirect_to root_path
+    redirect_to root_path, success: "Check your email for investment confirmation."
   end
 
   def update
