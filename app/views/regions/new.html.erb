@@ -10,7 +10,13 @@
         <p><%= f.label :description %></p>
         <div class='element'><p color:'black'><%= f.text_area :description, value: @region.description %></p></div>
 
+        <% if current_user.guest? == true %>
+       <p><%= f.label :email %></p>
+       <div class='element'><p><%= f.text_field :email %></p></div>
+        <% end %>
+        <br>
         <p><%= f.file_field :image, class: 'file-field'%></p>
+        <br>
       <p><%= f.submit "Create Region", class: "btn btn-success" %></p>
         <% end %>
       </div>
