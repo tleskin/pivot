@@ -12,7 +12,7 @@
           <p>Funding Raised:</p>
           <p><%= number_to_currency(business.funding_to_date / 100) %></p>
           <% if current_user.regional_admin? %>
-            <p><%= link_to "Edit", edit_regional_admin_business(region: business.region_id, id: business.id), class: 'edit-link' %></p>
+            <p><%= link_to "Edit", edit_regional_admin_business_path(business), class: 'edit-link' %></p>
           <% else %>
             <p><%= link_to "Learn More", region_business_path(region: business.region_id, id: business.id) %></p>
           <% end %>
