@@ -247,6 +247,21 @@ body {
 	position: fixed;
 }
 
+textarea {
+  color: black;
+	width:50%;
+
+}​
+
+textfield {
+  color: black;
+	width:50%;
+}​
+
+file-field {
+	margin-left: 60px;
+}
+
 /* Login modal styling */
 
 .modal {
@@ -332,6 +347,12 @@ $muted: #777;
 .element input {
   text-align: right;
   color: black;
+
+}
+
+.element {
+  color: black;
+
 }
 
 .new-user {
@@ -368,7 +389,7 @@ $muted: #777;
 }
 
 .file-field {
-  margin-left: auto;
+  margin-left: 60px;
   margin-right: auto;
 }
 
