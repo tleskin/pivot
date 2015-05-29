@@ -1,18 +1,19 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-6 col-md-offset-3 text-center'>
-      <h3>Regional Businesses</h3>
     </div>
   </div>
   <div class='row'>
     <div class='col-md-6 col-md-offset-3 text-center'>
+      <div class="region-admin-table">
+      <h3>Regional Businesses</h3>
       <table class='table'>
         <tr>
-          <td><strong>Name</strong></td>
-          <td><strong>Funding Needed</strong></td>
-          <td><strong>Funding To Date</strong></td>
-          <td><strong>Edit Information</strong></td>
-          <td><strong>Delete Business</strong></td>
+          <td><strong><p>Name</p></strong></td>
+          <td><strong><p>Funding Needed</p></strong></td>
+          <td><strong><p>Funding To Date</p></strong></td>
+          <td><strong><p>Edit Information</p></strong></td>
+          <td><strong><p>Delete Business</p></strong></td>
         </tr>
         <% @businesses.each do |business| %>
         <tr>
@@ -36,6 +37,7 @@
         </tr>
         <% end %>
       </table>
+    </div>
     </div>
   </div>
 </div>

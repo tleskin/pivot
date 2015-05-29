@@ -1,4 +1,5 @@
 <br>
+<div class="user-dash">
 <div class = "welcome">
 <h2>Welcome, <%= current_user.first_name %>!</h2>
 </div>
@@ -9,3 +10,4 @@
 <%= @previous_order %>
 <br />
 <%= link_to "Edit Profile", edit_user_path(id: current_user.id), class:'btn' %>
+</div>

@@ -326,3 +326,254 @@
 		margin-top: 15px;
   }
 }
+
+
+
+/* responsive formatting for region-form */
+
+.region-form{
+	background: black;
+	opacity: .9;
+	color: white;
+  text-align: center;
+  // border:1px solid black;
+	// padding-top: 20px;
+	// padding-left: 20px;
+	// padding-right: 20px;
+	// padding-bottom: 20px;
+	// -webkit-background-clip: padding-box;
+  border-radius:5px;
+	margin-bottom: 5px;
+	display: block;
+	text-align: center;
+	margin: 0	auto;
+	margin-top: 20px;
+}
+
+@media (min-width: 1170px) {
+  .region-form {
+		display: block;
+		text-align: center;
+		height: 525px;
+		width: 300px;
+		padding-top: 15px;
+	}
+
+	.region-form img {
+  	border-radius: 5px;
+    width: 300px;
+		margin-top: 15px;
+  }
+}
+
+@media (min-width: 970px) and (max-width: 1169px) {
+	.region-form {
+		height: 525px;
+		width: 300px;
+		padding-top: 15px;
+	}
+
+	.region-form img {
+  	border-radius: 5px;
+    width: 300px;
+		margin-top: 15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 969px) {
+	.region-form {
+		height: 525px;
+		width: 220px;
+		padding-top: 15px;
+	}
+
+	.region-form img {
+  	border-radius: 5px;
+    width: 220px;
+		margin-top: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+	.region-form {
+		height: 525px;
+		width: 300px;
+		padding-top: 15px;
+	}
+
+	.region-form img {
+  	border-radius: 5px;
+    width: 300px;
+		margin-top: 15px;
+  }
+}
+
+
+
+/* responsive formatting for region-admin-table */
+
+.region-admin-table{
+	background: black;
+	opacity: .9;
+	color: white;
+  text-align: center;
+  // border:1px solid black;
+	// padding-top: 20px;
+	// padding-left: 20px;
+	// padding-right: 20px;
+	// padding-bottom: 20px;
+	// -webkit-background-clip: padding-box;
+  border-radius:5px;
+	margin-bottom: 5px;
+	display: block;
+	text-align: center;
+	margin: 0	auto;
+	margin-top: 20px;
+}
+
+@media (min-width: 1170px) {
+  .region-admin-table {
+		display: block;
+		text-align: center;
+		height: 1275px;
+		width: 650px;
+		padding-top: 15px;
+	}
+}
+
+@media (min-width: 970px) and (max-width: 1169px) {
+	.region-admin-table {
+		height: 1275px;
+		width: 650px;
+		padding-top: 15px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 969px) {
+	.region-admin-table {
+		height: 1275px;
+		width: 650px;
+		padding-top: 15px;
+	}
+}
+
+@media (max-width: 767px) {
+	.region-admin-table {
+		height: 1325px;
+		width: 425px;
+		padding-top: 15px;
+	}
+}
+
+
+
+/* responsive formatting for region-adminss */
+
+.region-admins{
+	background: black;
+	opacity: .9;
+	color: white;
+  text-align: center;
+  // border:1px solid black;
+	// padding-top: 20px;
+	// padding-left: 20px;
+	// padding-right: 20px;
+	// padding-bottom: 20px;
+	// -webkit-background-clip: padding-box;
+  border-radius:5px;
+	margin-bottom: 5px;
+	display: block;
+	text-align: center;
+	margin: 0	auto;
+}
+
+@media (min-width: 1170px) {
+  .region-admins {
+		display: block;
+		text-align: center;
+		height: 450px;
+		width: 650px;
+		padding-top: 15px;
+	}
+}
+
+@media (min-width: 970px) and (max-width: 1169px) {
+	.region-admins {
+		height: 1275px;
+		width: 650px;
+		padding-top: 15px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 969px) {
+	.region-admins {
+		height: 1275px;
+		width: 650px;
+		padding-top: 15px;
+	}
+}
+
+@media (max-width: 767px) {
+	.region-admins {
+		height: 500px;
+		width: 450px;
+		padding-top: 15px;
+	}
+}
+
+
+
+
+/* responsive formatting for user_dash */
+
+.user-dash {
+	background: black;
+	opacity: .9;
+	color: white;
+  text-align: center;
+  // border:1px solid black;
+	// padding-top: 20px;
+	// padding-left: 20px;
+	// padding-right: 20px;
+	// padding-bottom: 20px;
+	// -webkit-background-clip: padding-box;
+  border-radius:5px;
+	margin-bottom: 5px;
+	display: block;
+	text-align: center;
+	margin: 0	auto;
+}
+
+@media (min-width: 1170px) {
+  .user-dash {
+		display: block;
+		text-align: center;
+		height: 250px;
+		width: 250px;
+		padding-top: 15px;
+	}
+}
+
+@media (min-width: 970px) and (max-width: 1169px) {
+	.user-dash {
+		height: 250px;
+		width: 250px;
+		padding-top: 15px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 969px) {
+	.user-dash {
+		height: 250px;
+		width: 250px;
+		padding-top: 15px;
+	}
+}
+
+@media (max-width: 767px) {
+	.user-dash {
+		height: 250px;
+		width: 250px;
+		padding-top: 15px;
+	}
+}

@@ -1,22 +1,21 @@
-<div class="region-data form-group">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-4 col-xs-offset-4">
-        <%= image_tag(@region.image) %><br><br>
+<div class="container business-info">
+        <div class="individual_business">
+          <div class="col-xs-12">
+            <div class="region-form">
+      <h2>Edit Region</h2>
 
         <%= form_for(:region, url: :regional_admin_region, html: {multipart: true}, method: :put) do |f|%>
-        <h4>
-          <%= f.label :name %><br>
-          <%= f.text_field :name, value: @region.name %><br><br>
-          <%= f.label :description %><br>
-          <%= f.text_area :description, value: @region.description %><br><br>
-          <%= f.label :image, "Change Image " %>
-          <%= f.file_field :image, class: 'file-field' %><br>
-        </h4>
-          <%= f.submit "Save Data", class: "btn btn-success" %>
+
+          <p><%= image_tag(@region.image) %></p>
+          <p><%= f.label :name %></p>
+          <div class='element'><p><%= f.text_field :name, value: @region.name %></p></div>
+          <p><%= f.label :description %></p>
+          <div class='element'><p color:'black'><%= f.text_area :description, value: @region.description %></p></div>
+
+          <p><%= f.file_field :image, class: 'file-field'%></p>
+      <p><%= f.submit "Save Data", class: "btn btn-success" %></p>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-
