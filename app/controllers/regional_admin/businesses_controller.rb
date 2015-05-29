@@ -8,10 +8,17 @@ class RegionalAdmin::BusinessesController < RegionalAdmin::BaseController
   end
 
   def edit
-
+    @business = Business.find(params[:id])
   end
 
   def update
+    business = Business.find(params[:id])
+    formatted_params = format_params(business_params)
+    if business.update(formatted_params)
+      redirect_to regional_admin_region_path, success: "Business updated."
+    else
+      redirect_to regional_admin_region_path, danger: business.errors.full_messages.join(", ")
+    end
   end
 
   def create
@@ -30,7 +37,7 @@ class RegionalAdmin::BusinessesController < RegionalAdmin::BaseController
   private
 
   def business_params
-
+    params.require(:business).permit(:name, :description, :funding_needed, :funding_to_date, :image)
   end
 
 end

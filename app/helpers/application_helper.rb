@@ -4,6 +4,13 @@ module ApplicationHelper
     value.scan(/\d/).join('').to_i
   end
 
+  def format_params(sent)
+    {"name"=> sent["name"],
+     "description"=> sent["description"],
+     "funding_needed"=> turn_money_to_pennies(sent["funding_needed"]),
+     "funding_to_date"=> turn_money_to_pennies(sent["funding_to_date"])}
+  end
+
   def happy_forwarding(message = nil)
     if session[:forward]
       redirect_to({controller: session[:forward]['controller'],

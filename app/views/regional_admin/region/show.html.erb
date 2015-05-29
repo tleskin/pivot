@@ -7,7 +7,7 @@
         <%= image_tag(@region.image) %><br><br>
         <h4><strong>Region Description</strong></h4>
         <h4><%= @region.description %></h4><br>
-        <%= button_to "Edit Region Information", edit_regional_admin_region_path, class: 'btn btn-success', method: :get %>
+        <%= link_to "Edit Region Information", edit_regional_admin_region_path, class: 'edit-link', method: :get %>
       </div>
       </div>
     </div>
