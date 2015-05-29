@@ -1,15 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe 'user' do
-  xit 'can be created' do
+  it 'can be created' do
     visit new_user_path
-    fill_in "First name", with: "Steve"
-    fill_in "Last name", with: "Jones"
-    fill_in "Username", with: "pjones"
-    fill_in "Email", with: "s@jones.com"
-    fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: "password"
-    click_button "Create User"
+    within('#wrapper') do
+      fill_in "user[first_name]", with: "Steve"
+      fill_in "user[last_name]", with: "Jones"
+      fill_in "user[username]", with: "pjones"
+      fill_in "user[email]", with: "s@jones.com"
+      fill_in "user[password]", with: "password"
+      fill_in "user[password_confirmation]", with: "password"
+      click_button "Create Account"
+    end
     expect(page).to have_content("Steve")
   end
 end
