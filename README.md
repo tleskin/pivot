@@ -43,6 +43,6 @@ and setup the database, from the command line run:x:
 
 Make sure PostgreSQL is running on your local machine.
 
-This project was built on Rails 2.1.5
+This project was built on Rails 4.2.1
 
 Run the test suite using: "rspec"
