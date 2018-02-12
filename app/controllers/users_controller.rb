@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -7,6 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserNotifier.send_signup_email(@user).deliver_now
       session[:user_id] = @user.id
       redirect_to @user
     else
@@ -36,6 +38,12 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def logged_in_user
+    unless logged_in?
+      redirect_to login_path
+    end
+  end
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation)

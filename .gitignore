@@ -16,3 +16,7 @@
 !/log/.keep
 /tmp
 coverage
+output_file
+
+# Ignore application configuration
+/config/application.yml

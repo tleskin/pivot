@@ -1,9 +1,9 @@
 class Business < ActiveRecord::Base
   belongs_to :region
-  has_many :investments
-  has_many :business_categories
+  has_many :investments, dependent: :destroy
+  has_many :business_categories, dependent: :destroy
   has_many :categories, through: :business_categories
-  
+
   validates :name, presence: true
   validates :description, presence: true
   validates :funding_needed, presence: true, numericality: { greater_than: 0 }
@@ -11,20 +11,15 @@ class Business < ActiveRecord::Base
   has_attached_file :image, default_url: "default_business_image.jpg"
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/png"]
 
-  def self.promoted
-    Business.all.sample(2)
+  def add_to_funding
+    funding_to_date = investments.reduce(0) do |sum, investment|
+      sum += investment.amount
+    end
+    self.update(funding_to_date: funding_to_date)
   end
-  # def self.active_items
-  #   Item.where(retired: false)
-  # end
 
-  # def dec_price
-  #    price/100
-  # end
-
-  # def average_score
-  #   scores = reviews.map(&:score)
-  #   scores.reduce(:+)/scores.length
-  # end
+  def self.promoted
+    Business.all.sample(6)
+  end
 
 end

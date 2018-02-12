@@ -1,0 +1,21 @@
+<!-- Login Modal -->
+<div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Login</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(:session, url: :login) do |f| %>
+          <%= f.text_field :email, placeholder: 'email address', class: 'login-text' %><br>
+          <%= f.password_field :password, placeholder: 'password', class: 'login-text' %><br>
+      <div class="modal-footer">
+          <%= f.submit 'Login', class: 'btn btn-success' %>
+        <% end %><br>
+        
+        <a href="#" id="create-modal-link" data-toggle="modal" data-target="#modal-create-user">No account? Create one now!</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,10 +10,10 @@ RSpec.describe 'user' do
                         password: "password",
                         password_confirmation: "password")
     }
-    it 'can see a list of previous orders' do
-      Order.create(status: "completed",
+    xit 'can see a list of previous orders' do
+      Investment.create(status: "completed",
                    user_id: user.id)
-      Order.create(status: "paid",
+      Investment.create(status: "paid",
                    user_id: user.id)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit orders_path

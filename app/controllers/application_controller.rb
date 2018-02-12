@@ -1,8 +1,18 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :logged_in?, :prospects?
+  
+  helper_method :current_user, :logged_in?, :prospects?, 
+                :regional_admin?, :platform_admin?, :load_prospects
+  
   protect_from_forgery with: :exception
+
+  add_flash_types :success, :info, :warning, :danger
+
   before_action :load_portfolio
   before_action :load_prospects
+
+
+
+  include SessionsHelper
 
   def platform_admin?
     @current_user && current_user.platform_admin?

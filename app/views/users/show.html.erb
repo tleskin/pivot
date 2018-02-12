@@ -1,6 +1,11 @@
+<br>
 <div class = "welcome">
-<h1>Welcome <%= current_user.first_name %></h1>
+<h2>Welcome, <%= current_user.first_name %>!</h2>
 </div>
+<p>First Name: <%= current_user.first_name %></p>
+<p>Last Name: <%= current_user.last_name %></p>
+<p>Email:  <%= current_user.email %></p>
+<p>Password: •••••••• </p>
 <%= @previous_order %>
 <br />
 <%= link_to "Edit Profile", edit_user_path(id: current_user.id), class:'btn' %>

@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/patrickmedaugh/pivot.png?label=ready&title=Ready)](https://waffle.io/patrickmedaugh/pivot)
 #The Pivot
 
 #Lend-io: Micro-lending platform
